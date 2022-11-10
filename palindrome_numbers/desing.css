@@ -1,0 +1,29 @@
+
+body{
+    margin: 20px 30px 20px 30px;
+}
+
+h1 {
+    background-color: seashell; 
+    padding: 50px 30px 50px 80px;
+
+    color: pink;
+    text-align: center;
+}
+
+p {
+    margin: 10px 50px 20px 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+.col-xs-4{
+    margin: 10px 35px 10px 20px ; 
+    padding: 30px 30px 10px 20px;
+    text-align: left;
+}
+
+.btn{
+    margin: 10px 30px 10px 0px;
+}
+
