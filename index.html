@@ -27,12 +27,158 @@
     gtag('config', 'UA-147891800-1');
   </script>
 </head>
-<body class="body-page"
+<body class="body-page">
+  <section class="hero hero-princ is-fullheight">
+    <div class="hero-body">
+      <div class="lang-div">
+        <select id="lang-opt" onchange="selectLan(this)">
+          <option value="en">english</option>
+          <option value="es">spanish</option>
+        </select>
+      </div>
+      <div class="container hero-princ-container is-flex f-d-col center-y">
+        <img class="gif-animated" src="src/gif/funny.gif" alt="chibi gif">
+        <div class="hero-princ-content is-flex f-d-col center-y text">
+          <h1 class="title has-text-white has-text-centered">
+            Grace Nikole
+          </h1>
+          <h2 class="subtitle has-text-grey-lighter">
+            Developer
+          </h2>
+        </div>
+        <div class="social-media">
+          <ul class="col is-flex">
+            <li class="li-smedia">
+              <a href="https://twitter.com/GraceNikole" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="li-smedia">
+              <a href="https://www.instagram.com/mistyblunch/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+              </a>      
+            </li>
+            <li class="li-smedia">
+              <a href="https://medium.com/@gracenikole" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-medium-m"></i>
+              </a>      
+            </li>
+            <li class="li-smedia">
+              <a href="https://www.youtube.com/channel/UCoKBkoGknv8JQOsjcRgs-tw?view_as=subscriber" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i>
+              </a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="hero-princ-footer">
+      <div class="container">
+        <ul class="menu is-flex center-x">
+          <a href="#about" class="no-deco">
+            <li class="en-opt">About</li>
+            <li class="es-opt">Acerca</li>
+          </a>
+          <li>/</li>
+          <a href="#skills" class="no-deco">
+            <li class="en-opt">Skills</li>
+            <li class="es-opt">Habilidades</li>
+          </a>
+          <li>/</li>
+          <a href="#projects" class="no-deco">
+            <li class="en-opt">Projects</li>
+            <li class="es-opt">Proyectos</li>
+          </a>
+          <li>/</li>
+          <a href="#blog" class="no-deco">
+            <li>Blog</li>
+          </a>
+          <li>/</li>
+          <a href="#contact" onclick="toContact()" class="no-deco">
+            <li class="en-opt">Contact</li>
+            <li class="es-opt">Contacto</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-     
- 	<div id="loader_ctn">
+  <!-- About -->
+  <section class="hero about" id="about">
+    <div class="columns about-columns">
+      <div class="column about col-1 is-flex center-y center-x">
+        <h1 class="title is-1 has-text-white en-opt">About</h1>
+        <h1 class="title is-1 has-text-white es-opt">Acerca de mí</h1>
+      </div>
+      <div class="column about col-2">
+        <div class="about-content">
+          <h3 class="subtitle is-3 en-opt">Hi! 👋</h3>
+          <h3 class="subtitle is-3 es-opt">Hola! 👋</h3>
+          <h5 class="subtitle is-5 en-opt">
+            I'm a Web Developer <br>
+            and enthusiast for technology, code, music and art. <br>
+          </h5>
+          <h5 class="subtitle is-5 es-opt">
+            Soy desarrolladora web<br>
+            y entuasiasta por la tecnología, el código, la música
+            y el arte. <br>
+          </h5>
+          <h6 class="subtitle is-6 en-opt">I write articles when I'm free about programming or tutorials, 
+            you can find them in 
+            <a href="https://medium.com/@gracenikole" target="_blank" rel="noopener noreferrer">Medium</a> 
+            and in <a href="https://dev.to/mistyblunch" target="_blank" rel="noopener noreferrer">dev.to</a>. 
+          </h6>
+          <h6 class="subtitle is-6 es-opt">Escribo artículos cada que tengo tiempo acerca de programación 
+            o tutoriales, puedes encontrarlos en
+            <a href="https://medium.com/@gracenikole" target="_blank" rel="noopener noreferrer">Medium</a> 
+            y también en <a href="https://dev.to/mistyblunch" target="_blank" rel="noopener noreferrer">dev.to</a>. 
+          </h6>
+          <br>
+          <img src="src/square/me.jpg" class="about-img" alt="my photo">
+          <h6 class="subtitle is-6 has-text-centered en-opt">I like this picture :3</h6>
+          <h6 class="subtitle is-6 has-text-centered es-opt">Me gusta esta foto :3</h6>
+          <br>
+          <h6 class="subtitle is-6 en-opt">
+            I'm searching to improve my knowledge in frontend technologies like JS, CSS and some libraries and frameworks, 
+            and learn more about backend technologies too.
+          </h6>
+          <h6 class="subtitle is-6 es-opt">
+            Actualmente estoy mejorando mis conocimientos en tecnologías frotend como JS, CSS y otra librerías y frameworks,
+            y aprendiendo algunas cosas sobre backend.
+          </h6>
+          <h6 class="subtitle is-6 en-opt">
+            For now I'm a student although I'm learning more things in books, YouTube videos and blogs too. 
+            I really like reading programming posts I've always loved learning something new 💚
+          </h6>
+          <h6 class="subtitle is-6 es-opt">
+            Por ahora soy estudiante, sin embargo, estoy aprendiendo más leyendo algunos libros, 
+            viendo videos en YouTube o leyendo blogs.
+            Realmente me encanta leer post de programación, siempre me ha gustado aprender algo nuevo 💚
+          </h6>
+          <h6 class="subtitle is-6 en-opt">
+            When I'm free I go to music fairs to listen to bands play live too. I have a
+            <a href="https://www.youtube.com/channel/UCoKBkoGknv8JQOsjcRgs-tw?view_as=subscriber" target="_blank" rel="noopener noreferrer">YouTube</a> 
+            channel where I upload videos of my favorite bands.
+          </h6>
+          <h6 class="subtitle is-6 es-opt">
+            Cuando estoy libre también me gusta ir a ferias para escuchar a bandas tocar en vivo, 
+            de hecho, tengo un canal de 
+            <a href="https://www.youtube.com/channel/UCoKBkoGknv8JQOsjcRgs-tw?view_as=subscriber" target="_blank" rel="noopener noreferrer">YouTube</a>
+            en donde subo videos de mis bandas favoritas entre otras cosas.
+          </h6>
+          <h6 class="subtitle is-6 read-more" id="about-read-more" onclick="openReadMore(this.id)">
+            Read More...
+          </h6>
+          <div id="about-read-more-section" class="read-more-section">
+            <h5 class="subtitle is-5 en-opt">
+              So, Do you want to know more about me? 👀 
+            </h5>
+            <h5 class="subtitle is-5 es-opt">
+              Así que quieres conocerme más? 👀 
+            </h5>
+     <div id="loader_ctn">
     <img src="src/gif/loader.svg" alt="">
-  </div>
+    </div>
 </body>
 <script src="js/index.js"></script>
 </html>
