@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dibujando ando.</title>
+</head>
+<body>
+    <p><font size= "5" face="Comic Sans MS">Elige el color del pincel</font></p>
+    <p>
+        <input type="button" 
+        value="BLACK"
+        id="black"/>
+        <input
+        type="button" 
+        value="BLUE" 
+        style="border: 1px blue solid"
+        id="blue"/> 
+    </p>
+    <p>
+        <input type="button" value="RED" style= "border: 1px solid red;" id="red"/> 
+        <input type="button" value="YEllOW" style= "border: 1px solid yellow;" id="yellow"/>
+        <input type="button" value="BORRADOR" style= "border: 1px solid black;" id="borrador"/>
+    </p>
+    <p><font face="Comic Sans MS">Elige el grosor del pincel:</font></p>
+    <p>
+        <input type="button" value="1" id="grosor"/>
+        <input type="button" value="3" id="grosor3"/>
+        <input type="button" value="5" id="grosor5"/>
+        <input type="button" value="10" id="grosor10"/>
+    </p>
+    <canvas width="400" height="400" id= "drawingKeys" style="border: 2px solid #8BBAE3" ></canvas>
+    <p>Muévete con las flechas del teclado</p>
+    <p>También puedes dibujar con el mouse</p>
+    <script src="Events arrows .js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js'></script>
+
+    <a href="/index.html"> Vuelve al inicio </a>
+    
+</body>
+</html>
