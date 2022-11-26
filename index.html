@@ -14,13 +14,23 @@
     <title>Document</title>
     <style>
         
-        section
+       
+        .containerLogoNav
         {
-            display: block;
-            position: absolute;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--blue-cloud);
+            margin-bottom: 12px;
+            
+        }
+        .logoHead
+        {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
             width: 100%;
             background-color: var(--blue-cloud);
-            height: 100vh;
+            height: 75vh;
           
         }
         .logomain {
@@ -28,30 +38,59 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 25%;
-            
+            margin-top: 0;
+            color: var(--blue-dark);
             
             
         }
+        /* Acerca de mi,  Proyectos / blog / coontacto */
+        .navContainer
+        {
+            display: flex;
+            font-size: 1.5rem;
+            justify-content: center;
+        }
 
-        .logomain figcaption {
+
+        .no_decoration
+        {   
+            color: var(--blue-dark);
+            text-decoration: none;
+            list-style: none;
+            font-weight: 400;
+            margin: 8px;
+        }
+        .navContainer a:hover
+        {
+            color: var(--blue-sky-dark);
+        }
+        .navContainer a:visited
+        {
+            color: var(--blue-dark);
+        }
+        .navContainer a:focus
+        {
+            color: var(--blue-cloud);
+        }
+      
+
+        .charge {
             object-fit: auto;
             margin-top: 12px;
         }
 
         .img2{
             object-fit: cover;
-            width: 4%;
+            width: 5%;
             
         }
-        .logomain figcaption {
-            font-size: var(--lg);
-         
-        }
+     
        
         .name
-        {
-            font-weight: 500;
+        {   display: flex;
+            font-weight: 450;
+            font-size: var(--xl);
+            color: var(--blue-dark);
         }
         
         @media (max-width: 640px) {
@@ -75,13 +114,34 @@
     </style>
 </head>
 <body>
+    
+    <header>
+        <section class="containerLogoNav">
+
+            <section class="logoHead">
+                <figure class="logomain">
+                    <img src="https://drive.google.com/uc?export=view&id=15oAZZUwGFQ84L9fqSvFeRGBX6TxHfE7b" class="img2"alt="ChristianMora">
+                    <figcaption class="name">Christian Mora</figcaption>
+                    <figcaption class="charge">SOFTWARE DEVELOPMENT</figcaption>
+                </figure>
+            </section>
+            <section class="navContainer">
+                <a href="#about" class ="no_decoration">About Me </a>
+                <li class="no_decoration">/</li>
+                <a href="#Proyectos" class ="no_decoration">Proyectos </a>
+                <li class="no_decoration">/</li>
+                <a href="#Blog" class ="no_decoration" id="no_Decoration">Blog</a>
+                <li class="no_decoration">/</li>
+                <a href="#Contaco" class ="no_decoration">Contacto </a>
+                <li class="no_decoration">/</li>
+            </section>
+
+        </section>
+    </header>
     <main>
-        <section>
-            <figure class="logomain">
-                <img src="https://drive.google.com/uc?export=view&id=15oAZZUwGFQ84L9fqSvFeRGBX6TxHfE7b" class="img2"alt="ChristianMora">
-                <figcaption class="name">Christian Mora</figcaption>
-                <figcaption>SOFTWARE DEVELOPMENT</figcaption>
-            </figure>
+        <section id="about">
+            <h1> Acerca de mí </h1>
+
         </section>
     </main>
 </body>
