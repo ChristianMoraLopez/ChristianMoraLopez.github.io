@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;"> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Mora, KhiskKhan.</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+   
+    <title>Document</title>
+    <style>
+        
+        section
+        {
+            display: block;
+            position: absolute;
+            width: 100%;
+            background-color: var(--blue-cloud);
+            height: 100vh;
+          
+        }
+        .logomain {
+            background-color: var(--blue-cloud);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25%;
+            
+            
+            
+        }
+
+        .logomain figcaption {
+            object-fit: auto;
+            margin-top: 12px;
+        }
+
+        .img2{
+            object-fit: cover;
+            width: 4%;
+            
+        }
+        .logomain figcaption {
+            font-size: var(--lg);
+         
+        }
+       
+        .name
+        {
+            font-weight: 500;
+        }
+        
+        @media (max-width: 640px) {
+     
+         
+            .name
+            {
+                display: none;
+            }
+            .img2
+            {
+                display: block;
+                width: 42px;
+            }
+            .logomain figcaption {
+            font-size: var(--sm);
+         
+        }
+        
+        } 
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <figure class="logomain">
+                <img src="/images/logoUni.png" class="img2"alt="ChristianMora">
+                <figcaption class="name">Christian Mora</figcaption>
+                <figcaption>SOFTWARE DEVELOPMENT</figcaption>
+            </figure>
+        </section>
+    </main>
+</body>
+</html>
