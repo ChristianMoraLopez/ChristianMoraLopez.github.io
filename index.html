@@ -51,6 +51,19 @@
             justify-content: center;
         }
 
+        #enlaces a
+        {   
+            padding: 24px;
+            text-decoration: none;
+            color: var(--blue-dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 8px;
+        }
+        #enlaces a img
+        {   width: 75%;
+            padding: 24px;
+        }
 
         .no_decoration
         {   
@@ -70,7 +83,7 @@
         }
         .navContainer a:focus
         {
-            color: var(--blue-cloud);
+            color: var(--gray-sky);
         }
       
 
@@ -107,6 +120,15 @@
             padding-bottom: 0;
 
         }
+
+        #enlaces
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr ;
+            grid-template-rows: 1fr 
+           
+
+        }
         
         @media (max-width: 640px) {
      
@@ -133,6 +155,14 @@
             {
                 margin: 0px;
             }
+
+            #enlaces
+        {
+            display: grid;
+            grid-template-columns: 1fr ;
+            grid-template-rows: 1fr * 4;
+
+        }
         
         } 
     </style>
@@ -154,9 +184,9 @@
                 <li class="no_decoration">/</li>
                 <a href="#Proyectos" class ="no_decoration">Proyectos </a>
                 <li class="no_decoration">/</li>
-                <a href="#Blog" class ="no_decoration" id="no_Decoration">Blog</a>
+                <a href="#Blog" class ="no_decoration" >Blog</a>
                 <li class="no_decoration">/</li>
-                <a href="#Contaco" class ="no_decoration">Contacto </a>
+                <a href="#Contacto" class ="no_decoration">Contacto </a>
                 <li class="no_decoration">/</li>
             </section>
 
@@ -169,10 +199,24 @@
         </section>
         <section id="Proyectos">
             <h1> Proyectos </h1>
-            <a href="/Mouse/Flechas.html"> Proyecto de dibujo con JavaScript</a>
-            <a href="/dibujo.html"> Dibuja Lineas JavaScript</a>
-            <a href="/dibujo mouse.html"> Otro proyecto para dibujar con el mouse JavaScript </a>
-            <a href="https://codepen.io/christianmoralopez/pens/public"> Proyectos de diseño en HTML y CSS</a>
+                <div id="enlaces">
+                    
+                    <a href="/Mouse/Flechas.html"> Proyecto de dibujo con JavaScript</a>
+                    <a href="/dibujo.html"> Dibuja Lineas JavaScript</a>
+                    <a href="/dibujo mouse.html"> Otro proyecto para dibujar con el mouse JavaScript </a>
+                    <a href="https://codepen.io/christianmoralopez/pens/public"> Proyectos de diseño en HTML y CSS     <figure>
+                        <img src="https://drive.google.com/uc?export=view&id=18IFGz7Xa-B4-uCr_I1B19Ks3nFGGd77m" alt=" Pen">
+                    </figure></a>
+                
+                </div>
+        </section>
+        <section id="Blog">
+            <h1> Blog </h1>
+       
+        </section>
+        <section id="Contacto">
+            <h1> Contacto </h1>
+      
         </section>
     </main>
 </body>
