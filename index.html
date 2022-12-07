@@ -58,7 +58,7 @@
             text-decoration: none;
             color: var(--blue-dark);
             text-decoration: none;
-            font-weight: 600;
+            font-size: 12px;
             margin: 8px;
         }
         #enlaces a img
@@ -68,7 +68,7 @@
 
         .no_decoration
         {   
-            color: var(--blue-dark);
+            color: var(--blue-sky-dark);
             text-decoration: none;
             list-style: none;
             font-weight: 400;
@@ -108,6 +108,8 @@
             color: var(--green-ocean);
         }
 
+      
+
         #Proyectos
         {   
             display: flex;
@@ -129,6 +131,15 @@
             grid-template-rows: 1fr 
            
 
+        }
+
+  
+
+        section h1
+        {
+            color: var(--blue-sky-dark);
+            font-weight: 100;
+            font-family: 'Berlin Sans FB'
         }
         
         @media (max-width: 640px) {
@@ -165,8 +176,12 @@
             {
                 font-size: var(--lg);
             } 
+            
+
         
         } 
+
+        
     </style>
 </head>
 <body>
@@ -195,28 +210,28 @@
         </section>
     </header>
     <main>
-        <section id="about">
+        <section id="about" class = "titles">
             <h1> Acerca de mí </h1>
 
         </section>
-        <section id="Proyectos">
+        <section id="Proyectos"  class = "titles">
             <h1> Proyectos </h1>
                 <div id="enlaces">
                     
-                    <a href="/Mouse/Flechas.html"> Proyecto de dibujo con JavaScript</a>
-                    <a href="/dibujo.html"> Dibuja Lineas JavaScript</a>
-                    <a href="/dibujo mouse.html"> Otro proyecto para dibujar con el mouse JavaScript </a>
-                    <a href="https://codepen.io/christianmoralopez/pens/public"> Proyectos de diseño en HTML y CSS     <figure>
+                    <a href="/Mouse/Flechas.html"> PROYECTO DE DIBUJO CON JAVASCRIPT</a>
+                    <a href="/dibujo.html"> DIBUJA LINEAS JAVASCRIPT</a>
+                    <a href="/dibujo mouse.html"> OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT </a>
+                    <a href="https://codepen.io/christianmoralopez/pens/public"> PROYECTOS DE DISEÑO HTML CSS    <figure>
                         <img src="https://drive.google.com/uc?export=view&id=18IFGz7Xa-B4-uCr_I1B19Ks3nFGGd77m" alt=" Pen">
                     </figure></a>
                 
                 </div>
         </section>
-        <section id="Blog">
+        <section id="Blog" class = "titles">
             <h1> Blog </h1>
        
         </section>
-        <section id="Contacto">
+        <section id="Contacto" class = "titles">
             <h1> Contacto </h1>
       
         </section>
