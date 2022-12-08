@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;"> -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Mora, KhiskKhan.</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" />
+ 
+  <title>Portafolio, Memory game, KhiskKhan</title>
+<style>
+#game-container {
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+#game-board {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  width: 50px;
+  height: 50px;
+  background-color: #f0f0f0;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+}
+
+.headerNav
+    {
+        display: flex;
+        flex-direction: row;
+        margin: 12px;
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+  <header class="headerNav">
+    <section id="drawn">
+        <h1>Memory Game</h1>
+    </section>
+    <section class="logoHead">
+        <figure class="logomain">
+            <img src="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" class="img2"alt="ChristianMora">
+            <figcaption class="name">Christian Mora</figcaption>
+            <figcaption class="charge">SOFTWARE DEVELOPMENT</figcaption>
+        </figure>
+    </section>
+    </header>
+    <div id="game-container">
+      <h1>Memory Game</h1>
+      <div id="game-board">
+        <!-- cards will be added here dynamically -->
+      </div>
+    </div>
+    <script>
+    const gameBoard = document.getElementById('game-board');
+
+    // create an array of numbers 1-8 and duplicate it
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    const gameCards = [...numbers, ...numbers];
+
+    // shuffle the array of game cards
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // create the game cards and add them to the game board
+    function createGameCards() {
+      const shuffledCards = shuffle(gameCards);
+      for (let i = 0; i < shuffledCards.length; i++) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.number = shuffledCards[i];
+        card.addEventListener('click', flipCard);
+        gameBoard.appendChild(card);
+      }
+    }
+    createGameCards();
+
+    // flip card function
+    let flippedCards = [];
+    function flipCard(event) {
+      const card = event.target;
+      card.innerHTML = card.dataset.number;
+
+      // add flipped card to array
+      flippedCards.push(card);
+
+      // if the array has two cards, check for a match
+      if (flippedCards.length === 2) {
+        setTimeout(checkForMatch, 1000);
+      }
+    }
+
+    // check for a match
+    function checkForMatch() {
+      const card1 = flippedCards[0];
+      const card2 = flippedCards[1];
+
+      if (card1.dataset.number === card2.dataset.number) {
+        // if there is a match, remove the event listener
+        // so the cards cannot be flipped again
+        card1.removeEventListener('click', flipCard);
+        card2.removeEventListener('click', flipCard);
+      } else {
+        // if there is no match, flip the cards back over
+        card1.innerHTML = '';
+        card2.innerHTML = '';
+        }
+        // empty the array of flipped cards
+        flippedCards = [];
+        }
+    </script>
+    <footer>
+      <a href="/index.html"> Vuelve al inicio </a>
+    </footer>
+</body>
+</html>
