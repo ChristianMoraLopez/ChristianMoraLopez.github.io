@@ -21,10 +21,7 @@ footer a
     text-decoration: none;
 }
 
-.charge {
-    font-size: var(--smaller);
-    color: var(--green-ocean);
-}
+
 
 .name
 {   display: flex;
