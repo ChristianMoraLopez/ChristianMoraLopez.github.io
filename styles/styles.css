@@ -7,9 +7,26 @@
     --gray-sky : #537287;
     --blue-sky-dark : #1C4158;
     --blue-dark:#082F49;
+    --smaller: 0.4rem;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
     --xl: 32px;
     font-family: 'Berlin Sans FB'; color: rgb(55,52,53); font-size: 14px
+}
+
+footer a
+{
+    font-size: var(--sm);
+    text-decoration: none;
+}
+
+.charge {
+    font-size: var(--smaller);
+    color: var(--green-ocean);
+}
+
+.name
+{   display: flex;
+    color: var(--green-ocean);
 }
