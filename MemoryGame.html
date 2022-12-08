@@ -16,15 +16,16 @@
 <style>
 #game-container {
   width: 600px;
-  height: 400px;
+  height: 500px;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid var(--blue-dark);
+  background-color: var(--blue-cloud );
 }
 #game-board {
-  width: 400px;
-  height: 400px;
+  width: 40vh;
+  height: 50vh;
   margin: 0 auto;
-  display: flex;
+  display: flex;  
   flex-wrap: wrap;
 }
 .card {
@@ -35,6 +36,7 @@
   text-align: center;
   line-height: 50px;
   font-size: 24px;
+  
 }
 
 .headerNav
@@ -44,23 +46,53 @@
         margin: 12px;
         justify-content: space-between;
     }
+
+#titleGame
+{  
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  
+}
+
+@media (max-width: 640px) {
+  #game-board {
+  width: 20vh;
+  height: 30vh;
+  display: flex;  
+  flex-wrap: wrap;}
+
+  #game-container {
+  width: 60%;
+  height: 450px;
+  margin: 0 auto;
+  border: 1px solid var(--blue-dark);
+  background-color: var(--blue-cloud );
+}
+}
+   
+
+
 </style>
 </head>
 <body>
   <header class="headerNav">
-    <section id="drawn">
+    <section id="titleG">
         <h1>Memory Game</h1>
     </section>
     <section class="logoHead">
         <figure class="logomain">
             <img src="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" class="img2"alt="ChristianMora">
             <figcaption class="name">Christian Mora</figcaption>
-            <figcaption class="charge">SOFTWARE DEVELOPMENT</figcaption>
+            <figcaption class="chargeLogo">SOFTWARE DEVELOPMENT</figcaption>
         </figure>
     </section>
     </header>
     <div id="game-container">
-      <h1>Memory Game</h1>
+      <section id="titleGame">
+        <h1>Memory Game</h1>
+      </section>
       <div id="game-board">
         <!-- cards will be added here dynamically -->
       </div>
@@ -69,7 +101,7 @@
     const gameBoard = document.getElementById('game-board');
 
     // create an array of numbers 1-8 and duplicate it
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const gameCards = [...numbers, ...numbers];
 
     // shuffle the array of game cards
@@ -105,7 +137,7 @@
 
       // if the array has two cards, check for a match
       if (flippedCards.length === 2) {
-        setTimeout(checkForMatch, 1000);
+        setTimeout(checkForMatch, 200);
       }
     }
 

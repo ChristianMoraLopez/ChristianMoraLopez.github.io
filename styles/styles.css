@@ -34,3 +34,8 @@ h1
     font-weight: 100;
     font-family: 'Berlin Sans FB'
 }
+.chargeLogo {
+    object-fit: auto;
+    font-size: var(--smaller);
+    color: var(--green-ocean);
+}
