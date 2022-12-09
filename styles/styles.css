@@ -19,6 +19,14 @@ footer a
 {
     font-size: var(--sm);
     text-decoration: none;
+    
+    
+}
+
+footer 
+{   display: flex;
+    justify-content: center;
+    margin-top: 4rem;
 }
 
 
