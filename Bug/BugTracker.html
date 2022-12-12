@@ -92,6 +92,15 @@
       margin-left: -32px;
     }
 
+    li
+    {
+      display: block;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
     [type="button"]:hover,  [type="submit"]:hover
     {
         background-color: var(--green-ocean);
@@ -124,7 +133,7 @@
       <h2 >Lista de Bugs o tareas</h2>
 
       <div id="bugList"> 
-        <ul>
+        <ul id="listBugs">
  
         </ul> 
       </div> 
