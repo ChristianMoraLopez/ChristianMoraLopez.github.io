@@ -99,8 +99,30 @@
       align-items: center;
       justify-content: center;
       margin-top: 12px;
+      background-color: var(--blue-cloud);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px;
     }
 
+    li button
+    {
+        background-color: var(--blue-cloud);
+        border: #666 1px solid;
+        border-radius: 4px;
+        font-family: 'Berlin Sans FB';
+        cursor: pointer;
+    }
+    li button:active
+    {
+        box-shadow: 0 5px var(  --blue-dark);
+        transform: translateY(4px);
+    }
+
+    li button:hover
+    {
+      background-color: var(--green-ocean);
+    }
     [type="button"]:hover,  [type="submit"]:hover
     {
         background-color: var(--green-ocean);
