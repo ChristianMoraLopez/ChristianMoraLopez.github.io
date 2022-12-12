@@ -47,3 +47,10 @@ h1
     font-size: var(--smaller);
     color: var(--green-ocean);
 }
+.headerNav
+    {
+        display: flex;
+        flex-direction: row;
+        margin: 12px;
+        justify-content: space-between;
+    }

@@ -1,0 +1,11 @@
+
+[
+    {
+        "desc": "Bug description",
+        "state": "In process"
+    },
+    {
+        "desc": "Another bug description",
+        "state": "In process"
+    }
+]
