@@ -60,4 +60,4 @@ function loadBugList(){
   refreshBugList(); 
 } 
 
-// window.onload = loadBugList; 
+window.onload = loadBugList; 
