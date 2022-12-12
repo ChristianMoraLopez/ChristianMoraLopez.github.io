@@ -59,5 +59,19 @@ function loadBugList(){
   } 
   refreshBugList(); 
 } 
+// Make a function to clean the list with a button
+function cleanBugList(){
+  bugList = [];
+  refreshBugList();
+}
+
+// make the button 
+var cleanButton = document.getElementById("cleanList");
+cleanButton.innerText = "Clean List";
+cleanButton.setAttribute("onClick", "cleanBugList()");
+cleanButton.setAttribute("onTouchEnd", "cleanBugList()");
+document.getElementById("bugList").appendChild(cleanButton);
+
 
 window.onload = loadBugList; 
+

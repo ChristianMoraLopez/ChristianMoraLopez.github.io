@@ -13,6 +13,97 @@
     <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" />
    
     <title>BugTracker, KhiskKhan</title>
+    <style>
+      .formTracker
+      {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15%;
+
+      }
+      #list
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+      }
+      #bugList
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 12px;
+      }
+      h2
+      {
+        text-align: center;
+        color: var(--blue-sky-dark);
+        font-weight: 100;
+        font-family: 'Berlin Sans FB'
+      }
+
+
+
+      .input
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: var(--blue-cloud);
+        border-radius: 12px;
+        padding: 12px;
+        margin: 12px;
+    }
+
+    .input input
+    {
+        border-radius: 4px;
+    }
+
+    [type="button"],  [type="submit"]
+    {
+        background-color: var(--blue-sky-dark);
+        color: var(--blue-cloud);
+        border: none;
+        padding: 12px;
+        font-size: 1.2rem;
+        font-weight: 100;
+        font-family: 'Berlin Sans FB';
+        cursor: pointer;
+    }
+    [type="text"]
+ {
+        background-color: var(--blue-cloud);
+        color: var(--blue-sky-dark);
+        border: solid 1px var(--blue-sky-dark);
+        padding: 10px;
+        font-size: 1.2rem;
+        font-weight: 100;
+        font-family: 'Berlin Sans FB';
+        cursor: pointer;
+    }
+    #cleanList
+    {
+      margin-top: 12%;
+      margin-left: -32px;
+    }
+
+    [type="button"]:hover,  [type="submit"]:hover
+    {
+        background-color: var(--green-ocean);
+    }
+
+    [type="button"]:active,  [type="submit"]:active
+    {
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    </style>
   </head> 
   <body> 
     <header class="headerNav">
@@ -28,17 +119,28 @@
       </section>
       </header>
     <h1>Bug Tracker</h1> 
-    <div id="bugList"> 
-      <ul> 
-      </ul> 
-    </div> 
+    
+    <section id="list">
+      <h2 >Lista de Bugs o tareas</h2>
 
-    <div> 
-      <form onsubmit="addBug(); return false;"> 
-        <input type="text" id="bugName" autocomplete="off"/> 
-        <input type="submit" value="Add Bug" /> 
-      </form> 
-    </div> 
+      <div id="bugList"> 
+        <ul>
+ 
+        </ul> 
+      </div> 
+
+    </section>
+    <section>
+      
+      <section class="formTracker"> 
+        <form onsubmit="addBug(); return false;"> 
+          <input type="text" id="bugName" autocomplete="off"/> 
+          <input type="submit" value="Add Bug" /> 
+        </form> 
+        <input type="button" value="Clean List" id="cleanList">
+      </section> 
+
+    </section>
 
     <script src="/Bug/bugTracker.js"> </script> 
 
