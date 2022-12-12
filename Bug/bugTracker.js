@@ -17,7 +17,7 @@ function refreshBugList(){
   var ul = document.getElementById("bugList").getElementsByTagName("ul")[0]; 
   ul.innerHTML = ""; 
   bugList.forEach(function(bug){ 
-    ul.innerHTML += "<li>" + bug.bugName + " (" + bug.state + ") <button onTouchEnd='changeState(this)'>Change state</button> <button onTouchEnd='removeBug(this)'>Remove</button></li>"; 
+    ul.innerHTML += "<li>" + bug.bugName + " (" + bug.state + ") <button onClick='changeState(this)' onTouchEnd='changeState(this)'>Change state</button> <button onTouchEnd='removeBug(this)'  onClick='removeBug(this)'>Remove</button></li>"; 
   }); 
   saveBugList(); 
 } 
@@ -60,4 +60,4 @@ function loadBugList(){
   refreshBugList(); 
 } 
 
-window.onload = loadBugList; 
+// window.onload = loadBugList; 
