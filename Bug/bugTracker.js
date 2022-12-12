@@ -17,7 +17,7 @@ function refreshBugList(){
   var ul = document.getElementById("bugList").getElementsByTagName("ul")[0]; 
   ul.innerHTML = ""; 
   bugList.forEach(function(bug){ 
-    ul.innerHTML += "<li >" + bug.bugName + " (" + bug.state + ") <button onTouch='changeState(this)' onClick='changeState(this)' >Change state</button> <button onClick='removeBug(this)'>Remove</button></li>"; 
+    ul.innerHTML += "<section> <li >" + bug.bugName + " (" + bug.state + ") </li> <button id= button_List onClick='changeState(this)' >Change state</button> <button button id= button_List onClick='removeBug(this)'>Remove</button> </section>"; 
   }); 
   saveBugList(); 
 } 
