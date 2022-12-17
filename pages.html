@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: slide 20s infinite;
+      }*/
+
+      #contenido {
+        width: 100%;
+        height: 100%;
+        background-color: #eee;
+      }
+      .ImagesBox {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+            align-items: center;
+        }
+        .img2 {
+          display: flex;
+          width: 100vh;
+        }
+    
+
+        @media (max-width: 1000px) {
+        .ImagesBox {
+          display: flex;
+          flex-direction: row;
+        }
+        .img2 {
+          display: flex;
+          width: 100vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="container">
+      <div class="slider">
+        <section class="ImagesBox">
+          <figure class="Image">
+            <img
+              src="/images/ChristianRey_high-resolution_interface_ui_ux_design_for_a_Softw_4d25865e-30fb-464d-9a82-e899d188f07f.png"
+              class="img2"
+              alt="ChristianMora"
+            />
+          </figure>
+
+          <figure class="Image">
+            <img
+              src="/images/ChristianRey_high-resolution_interface_ui_ux_design_for_a_Softw_79cdc30d-8ea5-47c1-bd9b-a51da8acf798.png"
+              class="img2"
+              alt="ChristianMora"
+            />
+          </figure>
+
+          <figure class="Image">
+            <img
+              src="/images/ChristianRey_sukuna_23744f2e-3e54-4242-ae47-af22903a5b48.png"
+              class="img2"
+              alt="ChristianMora"
+            />
+          </figure>
+        </section> -->
+
+    <div id="contenido">
+      <section class="ImagesBox">
+        <figure class="Image">
+          <img
+            src="/images/ChristianRey_high-resolution_interface_ui_ux_design_for_a_Softw_4d25865e-30fb-464d-9a82-e899d188f07f.png"
+            class="img2"
+            alt="ChristianMora"
+          />
+        </figure>
+
+        <figure class="Image">
+          <img
+            src="/images/ChristianRey_high-resolution_interface_ui_ux_design_for_a_Softw_79cdc30d-8ea5-47c1-bd9b-a51da8acf798.png"
+            class="img2"
+            alt="ChristianMora"
+          />
+        </figure>
+
+        <figure class="Image">
+          <img
+            src="/images/ChristianRey_sukuna_23744f2e-3e54-4242-ae47-af22903a5b48.png"
+            class="img2"
+            alt="ChristianMora"
+          />
+        </figure>
+      </section>
+    </div>
+
+    <script>
+      const contenido = document.getElementById("contenido");
+
+      let startX;
+      let endX;
+
+      contenido.addEventListener("touchstart", (event) => {
+        startX = event.touches[0].clientX;
+      });
+
+      contenido.addEventListener("touchend", (event) => {
+        endX = event.changedTouches[0].clientX;
+        const distance = endX - startX;
+        contenido.scrollLeft += distance;
+      });
+    </script>
+  </body>
+</html>

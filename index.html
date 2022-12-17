@@ -21,8 +21,7 @@
         {
             display: flex;
             flex-direction: column;
-            background-color: var(--blue-cloud);
-            margin-bottom: 12px;
+            
             
         }
         .logoHead
@@ -147,6 +146,7 @@
         {
             width: 50px;
         }
+
         
         @media (max-width: 640px) {
      
@@ -187,86 +187,158 @@
            {
                 font-weight: 700;
            }
-        
+           #enlaces
+           {
+            display: flex;
+            flex-direction: row;
+           }
+         .pageAll
+         {
+                display: flex;
+                flex-direction: row;
+                width: max-content;
+               
+                
+            }
+            .containerLogoNav
+            {   margin: -8px;
+                width: 60vh;
+                margin-right: 80px;
+                height: 100%;
+               
+            }
+
+            #Proyectos
+            {   margin-top: -4px;
+                height: 86%
+            }
+
+            .logoHead
+            {
+                height: 85%;
+                overflow-y: hidden;
+            }
+
+           
+
+
+            
+            body {
+                overflow-y: hidden;
+                }
+
+            
+
+
+
+     
         } 
 
-        
+      
+
+       
     </style>
 </head>
 <body>
     
-    <header>
-        <section class="containerLogoNav">
-
-            <section class="logoHead">
-                <figure class="logomain">
-                    <img src="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" class="img2"alt="ChristianMora">
-                    <figcaption class="name">Christian Mora</figcaption>
-                    <figcaption class="charge">SOFTWARE DEVELOPMENT</figcaption>
-                </figure>
-            </section>
-            <section class="navContainer">
-                <a href="#about" class ="no_decoration">About Me </a>
-                <li class="no_decoration">/</li>
-                <a href="#Proyectos" class ="no_decoration">Proyectos </a>
-                <li class="no_decoration">/</li>
-                <a href="#Blog" class ="no_decoration" >Blog</a>
-                <li class="no_decoration">/</li>
-                <a href="#Contacto" class ="no_decoration">Contacto </a>
-                <li class="no_decoration">/</li>
-            </section>
-
-        </section>
-    </header>
-  
-     
     
-    <main>
-        <section id="about" >
-            <h1 class = "titles"> Acerca de mí </h1>
 
-        </section>
-        <section id="Proyectos">
-            <h1 class = "titles"> Proyectos </h1>
-                <div id="enlaces">
-                    
-                    <a href="/Mouse/Flechas.html"> PROYECTO DE DIBUJO CON JAVASCRIPT</a>
-                    <a href="/dibujo.html"> DIBUJA LINEAS JAVASCRIPT
-                        <figure>
-                            <img src="https://drive.google.com/uc?export=view&id=1sYnU7vSAU5z_727kWFRJvkYlA9k8vwEW" alt="DibujoLineas">
+    <div id="contenido">
+            <section class="pageAll">
+            <header>
+                <section class="containerLogoNav">
+        
+                    <section class="logoHead">
+                        <figure class="logomain">
+                            <img src="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" class="img2"alt="ChristianMora">
+                            <figcaption class="name">Christian Mora</figcaption>
+                            <figcaption class="charge">SOFTWARE DEVELOPMENT</figcaption>
                         </figure>
-                    </a>
-                    <a href="/dibujo mouse.html"> OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT</a>
-                    <a href="https://codepen.io/christianmoralopez/pens/public"> PROYECTOS DE DISEÑO HTML CSS    <figure>
-                        <img src="https://drive.google.com/uc?export=view&id=18IFGz7Xa-B4-uCr_I1B19Ks3nFGGd77m" alt=" Pen">
-                    </figure></a>
-                    <a href="/MemoryGame.html"> JUEGO DE MEMORIA, JAVASCRIPT 
-                        <figure>
-                            <img src="https://drive.google.com/uc?export=view&id=1AeGUXpIjmfsroxak51teaiFJ_f9rwqYq" alt=" MemoryGame">
-                        </figure></a>
-                    </a>
-                    <a href="/Bug/BugTracker.html"> BUG TRACKER, O SEGUIMIENTO DE TAREAS, JAVASCRIPT.
-                        <figure>
-                            <img src="https://drive.google.com/uc?export=view&id=1qbMLTfSBNwl9xJyHaudy4Iz-BEJRIOjW" alt="BugT">
-                        </figure></a>
-                    </a>
-
-                    <a href="/imc/imc.html"> CALCULADORA DE IMC, JAVASCRIPT.
-                        <figure>
-                            <!-- <img src="https://drive.google.com/uc?export=view&id=1qbMLTfSBNwl9xJyHaudy4Iz-BEJRIOjW" alt="BugT"> -->
-                        </figure></a>
-                    </a>
+                    </section>
+                    <section class="navContainer">
+                        <a href="#about" class ="no_decoration">About Me </a>
+                        <li class="no_decoration">/</li>
+                        <a href="#Proyectos" class ="no_decoration">Proyectos </a>
+                        <li class="no_decoration">/</li>
+                        <a href="#Blog" class ="no_decoration" >Blog</a>
+                        <li class="no_decoration">/</li>
+                        <a href="#Contacto" class ="no_decoration">Contacto </a>
+                        <li class="no_decoration">/</li>
+                    </section>
+                </section>
                 
-                </div>
-        </section>
-        <section id="Blog" >
-            <h1 class = "titles"> Blog </h1>
-       
-        </section>
-        <section id="Contacto" >
-            <h1 class = "titles"> Contacto </h1>
+            </header>
+        
+            
+            
+            <main>
+                <!-- <section id="about" >
+                    <h1 class = "titles"> Acerca de mí </h1>
+        
+                </section> -->
+                <section id="Proyectos">
+                    <h1 class = "titles"> Proyectos </h1>
+                        <div id="enlaces">
+                            
+                            <a href="/Mouse/Flechas.html"> PROYECTO DE DIBUJO CON JAVASCRIPT</a>
+                            <a href="/dibujo.html"> DIBUJA LINEAS JAVASCRIPT
+                                <figure>
+                                    <img src="https://drive.google.com/uc?export=view&id=1sYnU7vSAU5z_727kWFRJvkYlA9k8vwEW" alt="DibujoLineas">
+                                </figure>
+                            </a>
+                            <a href="/dibujo mouse.html"> OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT</a>
+                            <a href="https://codepen.io/christianmoralopez/pens/public"> PROYECTOS DE DISEÑO HTML CSS    <figure>
+                                <img src="https://drive.google.com/uc?export=view&id=18IFGz7Xa-B4-uCr_I1B19Ks3nFGGd77m" alt=" Pen">
+                            </figure></a>
+                            <a href="/MemoryGame.html"> JUEGO DE MEMORIA, JAVASCRIPT 
+                                <figure>
+                                    <img src="https://drive.google.com/uc?export=view&id=1AeGUXpIjmfsroxak51teaiFJ_f9rwqYq" alt=" MemoryGame">
+                                </figure></a>
+                            </a>
+                            <a href="/Bug/BugTracker.html"> BUG TRACKER, O SEGUIMIENTO DE TAREAS, JAVASCRIPT.
+                                <figure>
+                                    <img src="https://drive.google.com/uc?export=view&id=1qbMLTfSBNwl9xJyHaudy4Iz-BEJRIOjW" alt="BugT">
+                                </figure></a>
+                            </a>
+        
+                            <a href="/imc/imc.html"> CALCULADORA DE IMC, JAVASCRIPT.
+                                <figure>
+                                    <!-- <img src="https://drive.google.com/uc?export=view&id=1qbMLTfSBNwl9xJyHaudy4Iz-BEJRIOjW" alt="BugT"> -->
+                                </figure></a>
+                            </a>
+                        </section>
+                        </div>
+                </section>
+                <!-- <section id="Blog" >
+                    <h1 class = "titles"> Blog </h1>
+            
+                </section>
+                <section id="Contacto" >
+                    <h1 class = "titles"> Contacto </h1>
+            
+                </section>
+             </section> -->
+        </div>
+
+        <script>
+            const contenido = document.getElementById("contenido");
       
-        </section>
+            let startX;
+            let endX;
+            let endY;
+      
+            contenido.addEventListener("touchstart", (event) => {
+              startX = event.touches[0].clientX;
+              
+            });
+      
+            contenido.addEventListener("touchend", (event) => {
+              endX = event.changedTouches[0].clientX;
+              const distance = endX - startX;
+              contenido.scrollLeft += distance;
+              
+            });
+        </script>
     </main>
 </body>
 </html>
