@@ -31,6 +31,9 @@
             flex-direction: column;
             width: 100%;
             background-image: linear-gradient(180deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
+             
+
+            
             height: 75vh;
           
         }
@@ -117,10 +120,11 @@
             justify-content: center;
             align-items: center;
             background-color: var(--blue-cloud);
-            margin-top: 0;
-            margin-bottom: 0;
+            margin:0;
+            
             padding-top: 0;
             padding-bottom: 0;
+            background-image: linear-gradient(360deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
 
         }
 
@@ -146,7 +150,7 @@
         {
             width: 50px;
         }
-
+        
         
         @media (max-width: 640px) {
      
@@ -155,15 +159,21 @@
             .img2
             {
                 display: block;
-                width: 42px;
+                width: 300px;
             }
+
+            .logomain .name
+            {
+                font-size: 70px;
+            } 
             .logomain .charge {
-            font-size: var(--sm);
+            font-size: 48px;
             }
             .navContainer
             {
             
-            font-size: var(--sm)
+            font-size: 70px;
+            
             
             }
             .no_decoration
@@ -172,66 +182,76 @@
             }
 
             #enlaces
-            {
+            {   
                 display: grid;
-                grid-template-columns: 1fr ;
-                grid-template-rows: 1fr * 4;
+                
+                grid-template-columns:repeat(8, 1fr);
+                                    
 
             }
-            .logomain .name
-            {
-                font-size: var(--lg);
-            } 
+            
             
            .titles
-           {
-                font-weight: 700;
+           {    display: flex;
+                margin: 0px;
+                font-weight: 100;
+                font-size: 125px;
+                margin-top: 90%;
+               
+                
            }
-           #enlaces
+           #enlaces a 
            {
-            display: flex;
-            flex-direction: row;
+                font-size: 50px;
+                margin-top: 50%;
            }
          .pageAll
          {
                 display: flex;
                 flex-direction: row;
                 width: max-content;
-               
+                height: fit-content;
                 
             }
             .containerLogoNav
             {   margin: -8px;
-                width: 60vh;
+                
+                width: 100%;
                 margin-right: 80px;
                 height: 100%;
                
             }
 
             #Proyectos
-            {   margin-top: -4px;
-                height: 86%
+            
+            {   display: block;
+                
+                margin-top: -8px;
+                width: fit-content;
+                height: 100%;
+                margin-left: -12px;
+                background-image: linear-gradient(180deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
             }
 
             .logoHead
             {
-                height: 85%;
-                overflow-y: hidden;
+                height: 100%;
             }
 
            
+            html {
+            overflow-y: hidden;
+            }
+            
+            header
+            {
+                width: 225vh;
+                height: 190rem;
+                
+            }
 
 
             
-            body {
-                overflow-y: hidden;
-                }
-
-            
-
-
-
-     
         } 
 
       
@@ -277,9 +297,10 @@
         
                 </section> -->
                 <section id="Proyectos">
-                    <h1 class = "titles"> Proyectos </h1>
-                        <div id="enlaces">
-                            
+                    <div id="enlaces">
+                        
+                        <h1 class = "titles"> Proyectos </h1>
+                        
                             <a href="/Mouse/Flechas.html"> PROYECTO DE DIBUJO CON JAVASCRIPT</a>
                             <a href="/dibujo.html"> DIBUJA LINEAS JAVASCRIPT
                                 <figure>
@@ -336,7 +357,9 @@
               endX = event.changedTouches[0].clientX;
               const distance = endX - startX;
               contenido.scrollLeft += distance;
-              
+
+           
+
             });
         </script>
     </main>
