@@ -140,96 +140,38 @@
   
 
         section h1
-        {
+        {   display: flex;
+            justify-content: center;
             color: var(--blue-sky-dark);
             font-weight: 100;
-            font-family: 'Berlin Sans FB'
+            font-family: 'Berlin Sans FB';
+            grid-column: 1/5;
         }
 
         .separationImg
         {
             width: 50px;
         }
-        
+
         
         @media (max-width: 640px) {
      
-          
-           
-            .img2
-            {
-                display: block;
-                width: 300px;
-            }
-
-            .logomain .name
-            {
-                font-size: 70px;
-            } 
-            .logomain .charge {
-            font-size: 48px;
-            }
-            .navContainer
-            {
-            
-            font-size: 70px;
-            
-            
-            }
-            .no_decoration
-            {
-                margin: 0px;
-            }
-
-            #enlaces
-            {   
-                display: grid;
-                
-                grid-template-columns:repeat(8, 1fr);
-                                    
-
-            }
-            
-            
-           .titles
-           {    display: flex;
-                margin: 0px;
-                font-weight: 100;
-                font-size: 125px;
-                margin-top: 90%;
-               
-                
-           }
-           #enlaces a 
-           {
-                font-size: 50px;
-                margin-top: 50%;
-           }
-         .pageAll
+            .pageAll
          {
-                display: flex;
+            display: flex;
                 flex-direction: row;
                 width: max-content;
                 height: fit-content;
-                
-            }
-            .containerLogoNav
-            {   margin: -8px;
-                
-                width: 100%;
-                margin-right: 80px;
-                height: 100%;
-               
-            }
+                }
 
-            #Proyectos
+                #Proyectos
             
-            {   display: block;
-                
-                margin-top: -8px;
+            {   display: flex;
+                flex-direction: column;
+                margin-left: 0;
                 width: fit-content;
-                height: 100%;
-                margin-left: -12px;
+                height: 88.7vh;
+                
                 background-image: linear-gradient(180deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
             }
 
@@ -237,22 +179,160 @@
             {
                 height: 100%;
             }
-
-           
-            html {
-            overflow-y: hidden;
+            .containerLogoNav
+            {   display: block;
+                margin: 0;
+                
+                width: 100%;
+                height:85vh;
+               
             }
-            
-            header
+
+         
+            #enlaces
+            {   
+                display: grid;
+                grid-template-columns: repeat(8, 1fr) ;
+                /* grid-template-rows: 1fr;  */
+                grid-gap: 0;
+                height:100%;
+
+                
+
+            }
+
+            #enlaces a
             {
-                width: 185vh;
-                height: 400vh;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: baseline;
+                
+                font-size: var(--sm);
+                
                 
             }
 
-
             
-        } 
+        section h1
+        {   display: block;
+            justify-content: center;
+            align-items: center;
+            color: var(--blue-sky-dark);
+            font-weight: 100;
+            font-family: 'Berlin Sans FB';
+            grid-column: auto;
+        }
+
+            .img2
+            {
+                display: block;
+                width: 30%;
+                object-fit: cover;
+            }
+
+            .titles
+           {    display: flex;
+                flex-direction: column;
+                font-size: var(--xl);
+                
+               
+                
+           }
+
+           .logomain .name
+            {
+                font-size: var(--sm);
+            } 
+            .logomain .charge {
+                font-size: var(--sm);
+            }
+            .navContainer
+            {
+            
+                font-size: var(--sm);
+            
+            
+            }
+
+           header
+            {   width: 48vh;
+    
+                display: flex;
+            }
+            
+          
+
+         
+
+         
+
+         
+
+         html, body, #contenido
+         {
+            overflow-y: hidden;
+            height: 100%;
+
+         }
+          
+                
+            }
+            .arrows {
+            position: relative;
+            /**/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /**/
+            width: 20px;
+            height: 20px;
+            transform: translate(125px, -50%);
+            }
+            .arrows:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-left: 13.6666666667px solid var(--green-ocean);
+            border-bottom: 13.6666666667px solid var(--green-ocean);
+            transform: translate(13.6666666667px, 106.6666666667px) rotate(225deg);
+            animation: arrows 3s linear infinite;
+            }
+            .arrows:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-left: 13.6666666667px solid var(--green-ocean);
+            border-bottom: 13.6666666667px solid var(--green-ocean);
+            transform: translate(53.3333333333px, 0px) rotate(225deg);
+            animation: arrows 3s linear infinite -1.5s;
+            }
+
+            @keyframes arrows {
+            0% {
+                border-left: 13.6666666667px solid rgba(0, 0, 0, 0);
+                border-bottom: 13.6666666667px solid rgba(0, 0, 0, 0);
+                transform: translate(20.3333333333px, 0px) rotate(225deg);
+            }
+            10%, 90% {
+                border-left: 13.6666666667px solid rgba(0, 0, 0, 0);
+                border-bottom: 13.6666666667px solid rgba(0, 0, 0, 0);
+            }
+            50% {
+                border-left: 13.6666666667px solid var(--green-ocean);
+                border-bottom: 13.6666666667px solid var(--green-ocean);
+                transform: translate(20.3333333333px, 0px) rotate(225deg);
+            }
+            100% {
+                border-left: 13.6666666667px solid rgba(0, 0, 0, 0);
+                border-bottom: 13.6666666667px solid rgba(0, 0, 0, 0);
+                transform: translate(-80.3333333333px, 0px) rotate(225deg);
+            }
+            }
+            
+        
 
       
 
@@ -285,6 +365,7 @@
                         <a href="#Contacto" class ="no_decoration">Contacto </a>
                         <li class="no_decoration">/</li>
                     </section>
+                    <div class="arrows"></div>
                 </section>
                 
             </header>
@@ -342,25 +423,19 @@
         </div>
 
         <script>
-            const contenido = document.getElementById("contenido");
-      
-            let startX;
-            let endX;
-            let endY;
-      
-            contenido.addEventListener("touchstart", (event) => {
-              startX = event.touches[0].clientX;
-              
-            });
-      
-            contenido.addEventListener("touchend", (event) => {
-              endX = event.changedTouches[0].clientX;
-              const distance = endX - startX;
-              contenido.scrollLeft += distance;
+         
+         window.addEventListener('touchmove', function(event) {
+            if (event.touches.length > 1) {
+                // Allow multi-touch gestures (e.g. pinch to zoom)
+                return;
+            }
 
-           
-
+            // Prevent the default touch action (scroll)
+            event.preventDefault();
             });
+
+          
+        
         </script>
     </main>
 </body>
