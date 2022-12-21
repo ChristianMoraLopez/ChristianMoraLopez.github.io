@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;"> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Mora, KhiskKhan.</title>
+    <!-- <link rel="stylesheet" href="/styles/styles.css"> -->
+    <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" />
+    <title>IMC</title>
+
+    <style>
+        :root {
+            --grey: #E5E5E5;
+            --blue-dark: #0A3871;
+            --greyWhite: #D8DFE8;
+            --smaller: 0.4rem;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+            --xl: 32px;
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            background-color: var(--grey);
+        }
+
+        .chargeLogo {
+            object-fit: auto;
+            font-size: var(--smaller);
+            color: var(--green-ocean);
+        }
+
+        .headerNav {
+            display: flex;
+            flex-direction: row;
+            margin: 12px;
+            justify-content: space-between;
+        }
+
+        #resultado {
+            /* Ingrese el texto aqui */
+            display: block;
+
+            width: 336px;
+            height: 100%;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 120%;
+            /* or 29px */
+
+            text-align: center;
+            grid-row: 2/4;
+
+            /* Gray/gray-500 */
+
+            color: #343A40;
+
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
+
+
+
+
+        }
+
+        #datosP {
+            display: flex;
+            justify-content: space-between;
+            align-items: right;
+            flex-direction: column;
+            height: 10rem;
+        }
+
+        #buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            grid-template-areas: "desencriptar encriptar";
+            gap: 1rem;
+            justify-content: center;
+            margin-left: 12%;
+            width: 100%;
+
+
+
+
+
+        }
+
+        #desencriptar {
+            background: var(--greyWhite);
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            padding: 24px;
+            width: 240px;
+            height: fit-content;
+            gap: 8px;
+
+
+
+            /* Dark blue/dark-blue-300 */
+            border-radius: 24px;
+            border: 1px solid var(--blue-dark);
+
+
+
+
+            /* Button */
+
+            text-align: center;
+            justify-content: center;
+
+            /* White */
+            color: var(--blue-dark);
+        }
+
+        #encriptarF,
+        #desencriptarF {
+            grid-row: 8 / 9;
+        }
+
+
+        #encriptar {
+
+
+
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 24px;
+            width: 240px;
+            gap: 8px;
+            margin-right: 8px;
+
+
+            /* Dark blue/dark-blue-300 */
+            background: var(--blue-dark);
+            border-radius: 24px;
+            border: 1px solid var(--blue-dark);
+
+            /* Inside auto layout */
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+
+
+            /* Button */
+
+            text-align: center;
+            justify-content: center;
+
+            /* White */
+            color: #FFFFFF;
+
+
+        }
+
+
+        [type=text] {
+            background: var(--grey);
+            border: none;
+            position: fixed;
+            width: 40%;
+            height: 50%;
+            color: var(--blue-dark);
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 150%;
+            
+        }
+
+        ::placeholder {
+            color: var(--blue-dark);
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 150%;
+            
+
+        }
+
+
+
+
+
+        input {
+            display: flex;
+            justify-content: space-between;
+            align-items: right;
+            flex-direction: column;
+            width: 15%;
+        }
+
+        .headerNav {
+            display: flex;
+            flex-direction: row;
+            margin: 12px;
+            justify-content: space-between;
+        }
+
+        #buttonsImage {
+            background-color: var(--grey);
+            display: grid;
+            grid-template: 1fr / 1fr 1fr;
+
+        }
+
+        #imageResult {
+            display: flex;
+            border-radius: 24px;
+            border: 1px solid var(--blue-dark);
+            justify-content: center;
+            flex-direction: column;
+            width: 60%;
+            margin-top: 2rem;
+            background-color: white;
+            justify-self: center;
+            justify-content: center;
+        }
+
+        .muñeco {
+            margin: 0;
+
+
+        }
+
+        #buttons label
+        {
+            grid-column: 1/4;
+            grid-row: 1/7;
+        
+        }
+
+        @media (max-width: 640px) {
+            #buttonsImage {
+            background-color: var(--grey);
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+
+    
+
+        [type=text] {
+            background: var(--grey);
+            border: none;
+            position: fixed;
+            width: 55vh;
+            height: 40%;
+            color: var(--blue-dark);
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 150%;
+            
+        }
+
+        ::placeholder {
+            color: var(--blue-dark);
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 150%;
+            
+
+        }
+
+        figure.muñeco {
+            display: none;
+        }
+
+        #imageResult {
+            width: 100%;
+            height: 50vh;
+        }
+      
+    }
+
+    </style>
+</head>
+
+<body>
+    <header class="headerNav">
+
+        <section id="crypt">
+            <h1>Encriptación</h1>
+        </section>
+        <section class="logoHead">
+            <figure class="logomain">
+                <img src="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" class="img2"
+                    alt="ChristianMora">
+                <figcaption class="name">Christian Mora</figcaption>
+                <figcaption class="chargeLogo">SOFTWARE DEVELOPMENT</figcaption>
+            </figure>
+        </section>
+    </header>
+
+    <main>
+
+
+        <section id="allElements">
+
+            <div id="buttonsImage">
+
+                <section id="buttons">
+
+                    <label for="texto">
+                        <!-- <span lang="en">Ingrese el texto que desee encriptar</span> -->
+                        <input type="text" id="texto" name="texto" autocomplete="off" required
+                            placeholder="Ingrese texto aquí">
+                    </label>
+
+
+                    <form id="encriptarF">
+                        <input type="button" value="Encriptar" id="encriptar" accesskey="s" />
+                    </form>
+
+                    <form id="desencriptarF">
+                        <input type="button" value="Desencriptar" id="desencriptar" accesskey="s" />
+                    </form>
+                </section>
+
+
+                <section id="imageResult">
+                    <section>
+
+                    </section>
+                    <section class="image">
+                        <figure class="muñeco">
+                            <!-- <img src="/Alura Challenge - Desafío 1 - Lógica/background.svg" class="img2" -->
+                            <!-- alt="ChristianMora"> -->
+                            <img src="https://drive.google.com/uc?export=view&id=15xpKwEUdch_462X2s1Nb5l1Gd8qKknBs"
+                                class="img2" alt="ChristianMora">
+
+
+                        </figure>
+                        <span id="resultado"> El resultado de tu mensaje saldrá aquí </span>
+                    </section>
+            </div>
+        </section>
+
+        </section>
+        <footer>
+            <a href="/index.html"> Vuelve al inicio </a>
+        </footer>
+
+        <script src="/Encriptación/encriptador.js"></script>
+</body>
+
+</html>
