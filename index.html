@@ -36,11 +36,17 @@
             width: 100%;
             z-index: 999;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
+            transition: background-color 0.5s ease, opacity 0.5s ease;
         }
 
         header:hover {
             background: linear-gradient(to right, #006fab, #008cba);
+        }
+
+        header.scrolled {
+            background: linear-gradient(to right, #006fab, #008cba);
+            opacity: 0.9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
         }
 
         header h1 {
@@ -48,11 +54,17 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px; /* Añadido para espaciado entre letras */
+            transition: transform 0.3s;
+        }
+
+        header:hover h1 {
+            transform: translateY(-5px);
         }
 
         nav {
             margin-top: 20px;
             text-align: center;
+            transition: transform 0.3s;
         }
 
         nav a {
@@ -61,11 +73,12 @@
             font-size: 1.2rem;
             margin: 0 10px;
             text-transform: uppercase;
-            transition: color 0.3s ease; /* Transición suave para el color del texto */
+            transition: color 0.3s ease, transform 0.3s;
         }
 
         nav a:hover {
             color: #66c7ff;
+            transform: scale(1.1);
         }
 
         .container {
@@ -77,6 +90,20 @@
         .section {
             text-align: center;
             margin-top: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section h2 {
@@ -92,10 +119,6 @@
             grid-gap: 30px;
             justify-items: center;
             margin-top: 20px;
-            background-color: #fff; /* Cambié el color de fondo */
-            padding: 30px; /* Agregué un relleno para separar los proyectos del borde */
-            border-radius: 10px; /* Añadí bordes redondeados */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
         }
 
         .project {
@@ -118,11 +141,12 @@
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             object-fit: cover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
         .project:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .project-content {
@@ -147,6 +171,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /* Ajustes para la animación */
+        @media (prefers-reduced-motion: reduce) {
+            .section {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -256,6 +288,17 @@
             </div>
         </section>
     </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>
