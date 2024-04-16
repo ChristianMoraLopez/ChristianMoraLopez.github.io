@@ -291,12 +291,23 @@
                 }
             }
         }
+
+        #header.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+/* Aparecer el encabezado al hacer scroll hacia arriba */
+#header.visible {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
     </style>
 </head>
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="containerIcon">
             <a href="/">
                 <img src="/images/logo.svg">
@@ -446,7 +457,22 @@
                 header.classList.remove('scrolled');
             }
         });
+        let lastScrollTop = 0;
+const header = document.getElementById('header');
 
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop) {
+        // Hacer scroll hacia abajo
+        header.classList.add('hidden');
+        header.classList.remove('visible');
+    } else {
+        // Hacer scroll hacia arriba
+        header.classList.remove('hidden');
+        header.classList.add('visible');
+    }
+    lastScrollTop = currentScroll;
+});
        
 
     </script>
