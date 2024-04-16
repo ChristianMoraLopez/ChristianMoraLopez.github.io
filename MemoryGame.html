@@ -43,9 +43,19 @@
       margin-right: 10px;
     }
 
+    #settings-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #settings-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
     #game-container {
       width: 80%;
-      margin: 50px auto;
+      margin: 0 auto;
       border: 1px solid #008cba;
       background-color: #f2f2f2;
       padding: 20px;
@@ -54,20 +64,18 @@
     }
 
     #game-board {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      gap: 10px;
     }
 
     .card {
-      width: 50px;
+      width: 100%;
       height: 50px;
       background-color: #fff;
       border: 1px solid #008cba;
       text-align: center;
       line-height: 50px;
       font-size: 24px;
-      margin: 5px;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.3s;
       border-radius: 5px;
@@ -117,6 +125,87 @@
     #message-panel p {
       margin-bottom: 0;
     }
+
+    #error-panel {
+      background-color: #ffcccc;
+      border: 1px solid #ff3333;
+      border-radius: 5px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #error-panel h2 {
+      color: #ff3333;
+      margin-top: 0;
+    }
+
+    #error-panel p {
+      margin-bottom: 0;
+    }
+
+    .settings-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.settings-container:hover {
+  transform: translateY(-5px);
+}
+
+.settings-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.settings-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Para incluir el borde en el ancho */
+}
+
+.settings-container button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #008cba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.settings-container button:hover {
+  background-color: #006a84;
+}
+
+.error-text {
+  color: #ff3333;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+#error-message {
+  margin-top: 10px;
+  display: none;
+}
+
+#error-message.show {
+  display: block;
+}
+
   </style>
 </head>
 <body>
@@ -127,6 +216,18 @@
       <span>Christian Mora</span>
     </div>
   </header>
+  <div id="settings-container" class="settings-container">
+    <label for="grid-size">Cantidad de casillas (pares):</label>
+    <input type="number" id="grid-size" value="8" min="4" max="16">
+    <label for="grid-columns">Cantidad de columnas:</label>
+    <input type="number" id="grid-columns" value="4" min="2" max="8">
+    <label for="grid-rows">Cantidad de filas:</label>
+    <input type="number" id="grid-rows" value="2" min="2" max="8">
+    <button onclick="resetGame()">Reiniciar Juego</button>
+    <div id="error-message" style=>
+      <p class="error-text">El número de filas y columnas no coincide con la cantidad de casillas.</p>
+    </div>
+  </div>
   <div id="game-container">
     <div id="game-board"></div>
   </div>
@@ -135,23 +236,58 @@
     <h2>¡Ganaste!</h2>
     <p>Has realizado <span id="attempts"></span> intentos en <span id="time"></span> segundos.</p>
   </div>
+
   <footer>
     <a href="/index.html">Vuelve al inicio</a>
   </footer>
   <script>
     const gameBoard = document.getElementById('game-board');
     const secondsDisplay = document.getElementById('seconds');
-    const messagePanel = document.getElementById('message-panel');
     const attemptsSpan = document.getElementById('attempts');
     const timeSpan = document.getElementById('time');
+    const messagePanel = document.getElementById('message-panel');
+    const errorPanel = document.getElementById('error-panel');
+    const gridSizeInput = document.getElementById('grid-size');
+    const gridColumnsInput = document.getElementById('grid-columns');
+    const gridRowsInput = document.getElementById('grid-rows');
     let secondsElapsed = 0;
     let timerInterval;
-
-    // create an array of numbers 1-8 and duplicate it
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const gameCards = [...numbers, ...numbers];
     let counter = 0;
-    // shuffle the array of game cards
+
+    function generateGameCards() {
+      const gridSize = parseInt(gridSizeInput.value);
+      const gridColumns = parseInt(gridColumnsInput.value);
+      const gridRows = parseInt(gridRowsInput.value);
+
+      const totalCells = gridColumns * gridRows;
+      const totalPairs = gridSize / 2;
+
+      if (gridSize > totalCells) {
+        document.getElementById('error-message').classList.add('show');
+        return;
+      } else {
+        document.getElementById('error-message').classList.remove('show');
+      }
+
+      const numbers = [];
+      for (let i = 1; i <= totalPairs; i++) {
+        numbers.push(i, i);
+      }
+
+      shuffle(numbers);
+
+      gameBoard.innerHTML = '';
+      gameBoard.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
+
+      for (let i = 0; i < gridSize; i++) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.number = numbers[i];
+        card.addEventListener('click', flipCard);
+        gameBoard.appendChild(card);
+      }
+    }
+
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -159,19 +295,6 @@
       }
       return array;
     }
-
-    // create the game cards and add them to the game board
-    function createGameCards() {
-      const shuffledCards = shuffle(gameCards);
-      for (let i = 0; i < shuffledCards.length; i++) {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.dataset.number = shuffledCards[i];
-        card.addEventListener('click', flipCard);
-        gameBoard.appendChild(card);
-      }
-    }
-    createGameCards();
 
     // flip card function
     let flippedCards = [];
@@ -209,6 +332,7 @@
       // empty the array of flipped cards
       flippedCards = [];
     }
+
     // check if the game is over
     function checkForGameOver() {
       const cards = document.querySelectorAll('.card');
@@ -227,9 +351,17 @@
         timeSpan.textContent = time;
       }
     }
+
     // reset the game
     function resetGame() {
-      location.reload();
+      clearInterval(timerInterval);
+      secondsElapsed = 0;
+      secondsDisplay.textContent = secondsElapsed;
+      counter = 0;
+      generateGameCards();
+      startTimer();
+      messagePanel.style.display = 'none';
+      errorPanel.style.display = 'none';
     }
 
     // Timer function
@@ -240,6 +372,7 @@
       }, 1000);
     }
 
+    generateGameCards();
     startTimer();
   </script>
 </body>
