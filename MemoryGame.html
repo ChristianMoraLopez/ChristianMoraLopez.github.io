@@ -2,105 +2,150 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;"> -->
-  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christian Mora, KhiskKhan.</title>
+  <title>Memory Game</title>
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="shortcut icon" href="/images/logo.svg" />
- 
-  <title>Portafolio, Memory game, KhiskKhan</title>
-<style>
-#game-container {
-  width: 600px;
-  height: 500px;
-  margin: 0 auto;
-  border: 1px solid var(--blue-dark);
-  background-color: var(--blue-cloud );
-}
-#game-board {
-  width: 80%;
-  height: 80%;
-  margin: 0 auto;
-  display: flex; 
-  justify-content: center;  
-  flex-wrap: wrap;
-}
-.card {
-  width: 50px;
-  height: 50px;
-  background-color: #f0f0f0;
-  border: 1px solid black;
-  text-align: center;
-  line-height: 50px;
-  font-size: 24px;
-  
-}
-
-.headerNav
-    {
-        display: flex;
-        flex-direction: row;
-        margin: 12px;
-        justify-content: space-between;
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
     }
 
-#titleGame
-{  
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-    margin-bottom: 12px;
-  
-}
+    header {
+      background-color: #008cba;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-@media (max-width: 640px) {
-  #game-board {
-  width: 100%;
-  height: 50%;
-  display: flex; 
-  justify-content: center; 
-  flex-wrap: wrap;}
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
 
-  #game-container {
-  width: 60%;
-  height: 450px;
-  margin: 0 auto;
-  border: 1px solid var(--blue-dark);
-  background-color: var(--blue-cloud );
-}
-}
-   
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
 
-</style>
+    #game-container {
+      width: 80%;
+      margin: 50px auto;
+      border: 1px solid #008cba;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #game-board {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 1px solid #008cba;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      margin: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      border-radius: 5px;
+    }
+
+    .card:hover {
+      background-color: #008cba;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #008cba;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    #timer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    #message-panel {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #message-panel h2 {
+      color: #008cba;
+      margin-top: 0;
+    }
+
+    #message-panel p {
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 <body>
-  <header class="headerNav">
-    <section id="titleG">
-        <h1>Memory Game</h1>
-    </section>
-    <section class="logoHead">
-        <figure class="logomain">
-            <img src="/images/logo.svg" class="img2"alt="ChristianMora">
-            <figcaption class="name">Christian Mora</figcaption>
-            <figcaption class="chargeLogo">SOFTWARE DEVELOPMENT</figcaption>
-        </figure>
-    </section>
-    </header>
-    <div id="game-container">
-      <section id="titleGame">
-        <h1>Memory Game</h1>
-      </section>
-      <div id="game-board">
-        <!-- cards will be added here dynamically -->
-      </div>
+  <header>
+    <h1>Memory Game</h1>
+    <div class="logo">
+      <img src="/images/logo.svg" alt="Logo">
+      <span>Christian Mora</span>
     </div>
-    <script>
+  </header>
+  <div id="game-container">
+    <div id="game-board"></div>
+  </div>
+  <div id="timer">Tiempo transcurrido: <span id="seconds">0</span> segundos</div>
+  <div id="message-panel" style="display: none;">
+    <h2>¡Ganaste!</h2>
+    <p>Has realizado <span id="attempts"></span> intentos en <span id="time"></span> segundos.</p>
+  </div>
+  <footer>
+    <a href="/index.html">Vuelve al inicio</a>
+  </footer>
+  <script>
     const gameBoard = document.getElementById('game-board');
+    const secondsDisplay = document.getElementById('seconds');
+    const messagePanel = document.getElementById('message-panel');
+    const attemptsSpan = document.getElementById('attempts');
+    const timeSpan = document.getElementById('time');
+    let secondsElapsed = 0;
+    let timerInterval;
 
     // create an array of numbers 1-8 and duplicate it
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -147,60 +192,55 @@
     function checkForMatch() {
       const card1 = flippedCards[0];
       const card2 = flippedCards[1];
-      // create a conter for the game
-      
+      // create a counter for the game
       counter++;
-      console.log(counter);
-      
-      
 
       if (card1.dataset.number === card2.dataset.number) {
         // if there is a match, remove the event listener
         // so the cards cannot be flipped again
-        
         card1.removeEventListener('click', flipCard);
         card2.removeEventListener('click', flipCard);
         checkForGameOver();
-        
-        
       } else {
-        
         // if there is no match, flip the cards back over
         card1.innerHTML = '';
         card2.innerHTML = '';
-
-        }
-        // empty the array of flipped cards
-        flippedCards = [];
-        
-        }
-      // check if the game is over
-      function checkForGameOver() {
-        const cards = document.querySelectorAll('.card');
-        let flippedCards = 0;
-        for (let i = 0; i < cards.length; i++) {
-          if (cards[i].innerHTML !== '') {
-            flippedCards++;
-          }
-        }
-        if (flippedCards === cards.length) {
-          alert("You Win!" + " " + "You have" + " " + counter + " " + "attempts");
-          resetGame();
+      }
+      // empty the array of flipped cards
+      flippedCards = [];
+    }
+    // check if the game is over
+    function checkForGameOver() {
+      const cards = document.querySelectorAll('.card');
+      let flippedCards = 0;
+      for (let i = 0; i < cards.length; i++) {
+        if (cards[i].innerHTML !== '') {
+          flippedCards++;
         }
       }
-      // reset the game
-      function resetGame() {
-        location.reload()
+      if (flippedCards === cards.length) {
+        clearInterval(timerInterval);
+        const time = secondsElapsed;
+        const attempts = counter;
+        messagePanel.style.display = 'block';
+        attemptsSpan.textContent = attempts;
+        timeSpan.textContent = time;
       }
-      
-   
-      
-    
-    </script>
+    }
+    // reset the game
+    function resetGame() {
+      location.reload();
+    }
 
-  
-    <footer>
-      <a href="/index.html"> Vuelve al inicio </a>
-    </footer>
+    // Timer function
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        secondsElapsed++;
+        secondsDisplay.textContent = secondsElapsed;
+      }, 1000);
+    }
+
+    startTimer();
+  </script>
 </body>
 </html>
