@@ -26,7 +26,7 @@
         }
 
         header {
-            background-color: #008cba;
+            background: linear-gradient(to right, #008cba, #006fab);
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -35,12 +35,19 @@
             left: 0;
             width: 100%;
             z-index: 999;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        header:hover {
+            background: linear-gradient(to right, #006fab, #008cba);
         }
 
         header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-transform: uppercase;
+            letter-spacing: 2px; /* Añadido para espaciado entre letras */
         }
 
         nav {
@@ -54,7 +61,7 @@
             font-size: 1.2rem;
             margin: 0 10px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease; /* Transición suave para el color del texto */
         }
 
         nav a:hover {
@@ -62,9 +69,8 @@
         }
 
         .container {
-            display: block;
             max-width: 1200px;
-            margin: 25% auto 0 auto;
+            margin: 200px auto 0 auto; /* Aumenté el margen superior para dar espacio al encabezado */
             padding: 20px;
         }
 
@@ -83,28 +89,44 @@
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 20px;
+            grid-gap: 30px;
             justify-items: center;
             margin-top: 20px;
+            background-color: #fff; /* Cambié el color de fondo */
+            padding: 30px; /* Agregué un relleno para separar los proyectos del borde */
+            border-radius: 10px; /* Añadí bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
         }
 
         .project {
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
         }
 
         .project:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .project img {
             width: 100%;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            height: 200px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
         }
 
         .project h3 {
@@ -121,27 +143,19 @@
         }
 
         .containerIcon {
-            
-            width: 25%;
+            width: 100%;
+            display: flex;
             justify-content: center;
             align-items: center;
         }
-    .header  {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-
     </style>
 </head>
 
 <body>
-    <header class="header">
+    <header>
         <div class="containerIcon">
-
             <a href="/">
-               
+                <!-- Agregar logo aquí -->
             </a>
         </div>
         <h1>Portafolio de Christian Mora</h1>
@@ -160,67 +174,85 @@
                 <div class="project">
                     <a href="/Encriptación/index.html">
                         <img src="https://media.discordapp.net/attachments/953413844183683082/955395585232498738/2790a5e8-0429-4ec1-93e7-5a4d98ed8d07_hierarchical_generative_space_graph_encoder_poster_art.png?ex=662f6679&is=661cf179&hm=a0a503bca21a8d231a32bf909661157ad1907975a191a7ced1d965de8d89dea2&=&format=webp&quality=lossless&width=415&height=623" alt="Project 1">
-                        <h3>Proyecto de encriptación para Oracle</h3>
                     </a>
-                    <p>Este proyecto consiste en una aplicación de encriptación desarrollada para la plataforma Oracle, proporcionando una capa adicional de seguridad para los datos sensibles.</p>
+                    <div class="project-content">
+                        <h3>Proyecto de encriptación para Oracle</h3>
+                        <p>Una aplicación de encriptación desarrollada para la plataforma Oracle, proporcionando una capa adicional de seguridad para los datos sensibles.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="/dibujo.html">
                         <img src="https://media.discordapp.net/attachments/945077390839787570/1228129697087361065/salamandreau_double_exposure_quantum_entanglement_Initial_expos_4fdb1b47-9e4f-4cd9-8e5e-26672f600139.png?ex=662aebe9&is=661876e9&hm=1c143756f63ef667576ec2916cca7b649afa1054d5e9c83278a53c89c5915726&=&format=webp&quality=lossless&width=623&height=623" alt="Project 2">
-                        <h3>DIBUJA LINEAS JAVASCRIPT</h3>
                     </a>
-                    <p>Descripción del proyecto 2.</p>
+                    <div class="project-content">
+                        <h3>DIBUJA LINEAS JAVASCRIPT</h3>
+                        <p>Una aplicación interactiva que permite al usuario dibujar líneas utilizando JavaScript.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="https://codepen.io/christianmoralopez/pens/public">
                         <img src="https://via.placeholder.com/250" alt="Project 3">
-                        <h3>PROYECTOS DE DISEÑO HTML CSS</h3>
                     </a>
-                    <p>Descripción del proyecto 3.</p>
+                    <div class="project-content">
+                        <h3>PROYECTOS DE DISEÑO HTML CSS</h3>
+                        <p>Varios proyectos de diseño implementados con HTML y CSS para practicar y demostrar habilidades de diseño web.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="/MemoryGame.html">
                         <img src="https://media.discordapp.net/attachments/976997370132848640/1222324370182242355/meiman_85027_animal-themed_memory_card_game_silhouette_differen_082f1877-5d6a-4b02-b04c-8b89403d40bc.png?ex=66284247&is=6615cd47&hm=8b7045452a8cfe37a4f2c721f2a95df1d18613f35f986305d81460d3c4e379b9&=&format=webp&quality=lossless&width=623&height=623" alt="Project 4">
-                        <h3>JUEGO DE MEMORIA, JAVASCRIPT</h3>
                     </a>
-                    <p>Descripción del proyecto 4.</p>
+                    <div class="project-content">
+                        <h3>JUEGO DE MEMORIA, JAVASCRIPT</h3>
+                        <p>Un juego clásico de memoria implementado en JavaScript con cartas temáticas de animales.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="/Bug/BugTracker.html">
                         <img src="https://via.placeholder.com/250" alt="Project 5">
-                        <h3>BUG TRACKER, O SEGUIMIENTO DE TAREAS, JAVASCRIPT.</h3>
                     </a>
-                    <p>Descripción del proyecto 5.</p>
+                    <div class="project-content">
+                        <h3>BUG TRACKER, SEGUIMIENTO DE TAREAS, JAVASCRIPT</h3>
+                        <p>Una aplicación web para el seguimiento y gestión de errores o bugs en proyectos de software, implementada con JavaScript.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="/imc/imc.html">
                         <img src="https://via.placeholder.com/250" alt="Project 6">
-                        <h3>CALCULADORA DE IMC, JAVASCRIPT.</h3>
                     </a>
-                    <p>Descripción del proyecto 6.</p>
+                    <div class="project-content">
+                        <h3>CALCULADORA DE IMC, JAVASCRIPT</h3>
+                        <p>Una sencilla calculadora de índice de masa corporal (IMC) implementada en JavaScript para calcular el IMC de una persona.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="/Mouse/Flechas.html">
                         <img src="https://via.placeholder.com/250" alt="Project 7">
-                        <h3>PROYECTO DE DIBUJO CON JAVASCRIPT</h3>
                     </a>
-                    <p>Descripción del proyecto 7.</p>
+                    <div class="project-content">
+                        <h3>PROYECTO DE DIBUJO CON JAVASCRIPT</h3>
+                        <p>Una aplicación que permite al usuario dibujar utilizando el mouse, implementada con JavaScript.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="/dibujo mouse.html">
                         <img src="https://media.discordapp.net/attachments/995431172375064616/1228038398938185818/kubradervisoglu_I_want_a_drawing_to_paint._The_elephant_gets_ma_fc171c94-f417-4d12-897d-ac33d8ead157.png?ex=662a96e2&is=661821e2&hm=5e70898e3073aa6b3fe3c3bcf78b97b7080ba7940990718222bdf8226872cee7&=&format=webp&quality=lossless&width=623&height=623" alt="Project 8">
-                        <h3>OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT</h3>
                     </a>
-                    <p>Descripción del proyecto 8.</p>
+                    <div class="project-content">
+                        <h3>OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT</h3>
+                        <p>Otro proyecto de dibujo que permite al usuario dibujar utilizando el mouse, implementado con JavaScript.</p>
+                    </div>
                 </div>
                 <div class="project">
                     <a href="Practicas/ejemplohtml.html">
                         <img src="https://media.discordapp.net/attachments/976997370132848640/1229574602599170239/trippysanders_2000_x_2000_px_300_dpi_cartooned_red_liquid_SPLAS_4aac5903-f3e1-42f9-be13-d37c34b2b957.png?ex=66302d95&is=661db895&hm=67e63ea1a46d043f6e2408e59aed6bebc04d019b16c20e812aae8015cda39b92&=&format=webp&quality=lossless&width=623&height=623" alt="Project 9">
-                        <h3>Acceder a Ejemplo HTML con CSS</h3>
                     </a>
-                    <p>Descripción del proyecto 9.</p>
+                    <div class="project-content">
+                        <h3>Acceder a Ejemplo HTML con CSS</h3>
+                        <p>Un ejemplo básico de una página HTML estilizada con CSS para practicar conceptos de diseño web.</p>
+                    </div>
                 </div>
-                <!-- Agrega más proyectos aquí -->
+                <!-- Agregar más proyectos aquí -->
             </div>
         </section>
     </div>
