@@ -3,449 +3,206 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src example.com;"> -->
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christian Mora, KhiskKhan.</title>
+    <title>Portafolio de Christian Mora</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" />
-
-    <title>Portafolio, KhiskKhan</title>
     <style>
-        .containerLogoNav {
-            display: flex;
-            flex-direction: column;
-
-
-        }
-
-        .logoHead {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            background-image: linear-gradient(180deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
-
-
-
-            height: 75vh;
-
-        }
-
-        .logomain {
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 0;
-            color: var(--blue-dark);
-
-
-        }
-
-        /* Acerca de mi,  Proyectos / blog / coontacto */
-        .navContainer {
-            background-color: #8ea8b9;
-            display: flex;
-            font-size: 1.5rem;
-            justify-content: center;
-        }
-
-        #enlaces a {
-            padding: 24px;
-            text-decoration: none;
-            color: var(--blue-dark);
-            text-decoration: none;
-            font-size: 12px;
-            margin: 8px;
-        }
-
-        #enlaces a img {
-            width: 75%;
-            padding: 24px;
-        }
-
-        .no_decoration {
-            color: var(--blue-sky-dark);
-            text-decoration: none;
-            list-style: none;
-            font-weight: 400;
-            margin: 8px;
-        }
-
-        .navContainer a:hover {
-            color: var(--blue-sky-dark);
-        }
-
-        .navContainer a:visited {
-            color: var(--blue-dark);
-        }
-
-        .navContainer a:focus {
-            color: var(--gray-sky);
-        }
-
-
-        .charge {
-            object-fit: auto;
-            margin-top: 12px;
-            color: var(--green-ocean);
-        }
-
-        .img2 {
-            object-fit: cover;
-            width: 5%;
-
-        }
-
-
-        .name {
-            display: flex;
-            font-weight: 450;
-            font-size: var(--xl);
-            color: var(--green-ocean);
-        }
-
-
-
-        #Proyectos {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--blue-cloud);
+        /* Estilos personalizados */
+        * {
             margin: 0;
-
-            padding-top: 0;
-            padding-bottom: 0;
-            background-image: linear-gradient(360deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
-
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        #enlaces {
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #008cba;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #66c7ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #008cba;
+            text-transform: uppercase;
+        }
+
+        .projects {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            justify-items: center;
+            margin-top: 20px;
         }
 
-
-
-        section h1 {
-            display: flex;
-            justify-content: center;
-            color: var(--blue-sky-dark);
-            font-weight: 100;
-            font-family: 'Berlin Sans FB';
-            grid-column: 1/5;
+        .project {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .separationImg {
-            width: 50px;
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
-        @media (max-width: 640px) {
+        .project img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
 
-            .pageAll {
-                display: flex;
-                flex-direction: row;
-                width: max-content;
-                height: fit-content;
-            }
+        .project h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #008cba;
+            text-transform: uppercase;
+        }
 
-            #Proyectos {
-                display: flex;
-                flex-direction: column;
-                margin-left: 0;
-                width: fit-content;
-                height: 88.7vh;
-
-                background-image: linear-gradient(180deg, #a6ffff 0, #a2edff 25%, #9dd5f2 50%, #96bed5 75%, #8ea8b9 100%);
-            }
-
-            .logoHead {
-                height: 100%;
-            }
-
-            .containerLogoNav {
-                display: block;
-                margin: 0;
-
-                width: 100%;
-                height: 85vh;
-
-            }
-
-
-            #enlaces {
-                display: grid;
-                grid-template-columns: repeat(9, 1fr);
-                /* grid-template-rows: 1fr;  */
-                grid-gap: 0;
-                height: 100%;
-
-
-
-            }
-
-            #enlaces a {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: baseline;
-
-                font-size: var(--sm);
-
-
-            }
-
-
-            section h1 {
-                display: block;
-                justify-content: center;
-                align-items: center;
-                color: var(--blue-sky-dark);
-                font-weight: 100;
-                font-family: 'Berlin Sans FB';
-                grid-column: auto;
-            }
-
-            .img2 {
-                display: block;
-                width: 30%;
-                object-fit: cover;
-            }
-
-            .titles {
-                display: flex;
-                flex-direction: column;
-                font-size: var(--xl);
-
-
-
-            }
-
-            .logomain .name {
-                font-size: var(--sm);
-            }
-
-            .logomain .charge {
-                font-size: var(--sm);
-            }
-
-            .navContainer {
-
-                font-size: var(--sm);
-
-
-            }
-
-            header {
-                width: 48vh;
-
-                display: flex;
-            }
-
-
-
-
-
-
-
-
-
-            html,
-            body,
-            #contenido {
-                overflow-y: hidden;
-                height: 100%;
-
-            }
-
-
-
-            .arrows {
-                position: relative;
-                /**/
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                /**/
-                width: 20px;
-                height: 20px;
-                transform: translate(125px, -50%);
-            }
-
-            .arrows:before {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-left: 13.6666666667px solid var(--green-ocean);
-                border-bottom: 13.6666666667px solid var(--green-ocean);
-                transform: translate(13.6666666667px, 106.6666666667px) rotate(225deg);
-                animation: arrows 3s linear infinite;
-            }
-
-            .arrows:after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border-left: 13.6666666667px solid var(--green-ocean);
-                border-bottom: 13.6666666667px solid var(--green-ocean);
-                transform: translate(53.3333333333px, 0px) rotate(225deg);
-                animation: arrows 3s linear infinite -1.5s;
-            }
-
-            @keyframes arrows {
-                0% {
-                    border-left: 13.6666666667px solid rgba(0, 0, 0, 0);
-                    border-bottom: 13.6666666667px solid rgba(0, 0, 0, 0);
-                    transform: translate(20.3333333333px, 0px) rotate(225deg);
-                }
-
-                10%,
-                90% {
-                    border-left: 13.6666666667px solid rgba(0, 0, 0, 0);
-                    border-bottom: 13.6666666667px solid rgba(0, 0, 0, 0);
-                }
-
-                50% {
-                    border-left: 13.6666666667px solid var(--green-ocean);
-                    border-bottom: 13.6666666667px solid var(--green-ocean);
-                    transform: translate(20.3333333333px, 0px) rotate(225deg);
-                }
-
-                100% {
-                    border-left: 13.6666666667px solid rgba(0, 0, 0, 0);
-                    border-bottom: 13.6666666667px solid rgba(0, 0, 0, 0);
-                    transform: translate(-80.3333333333px, 0px) rotate(225deg);
-                }
-            }
+        .project p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.5;
         }
     </style>
 </head>
 
 <body>
+    <header>
+        <h1>Portafolio de Christian Mora</h1>
+        <nav>
+            <a href="#about">Acerca de mí</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
 
-
-
-    <div id="contenido">
-        <section class="pageAll">
-            <header>
-                <section class="containerLogoNav">
-
-                    <section class="logoHead">
-                        <figure class="logomain">
-                            <img src="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX"
-                                class="img2" alt="ChristianMora">
-                            <figcaption class="name">Christian Mora</figcaption>
-                            <figcaption class="charge">SOFTWARE DEVELOPMENT</figcaption>
-                        </figure>
-                    </section>
-                    <section class="navContainer">
-                        <a href="#about" class="no_decoration">About Me </a>
-                        <li class="no_decoration">/</li>
-                        <a href="#Proyectos" class="no_decoration">Proyectos </a>
-                        <li class="no_decoration">/</li>
-                        <a href="#Blog" class="no_decoration">Blog</a>
-                        <li class="no_decoration">/</li>
-                        <a href="#Contacto" class="no_decoration">Contacto </a>
-                        <li class="no_decoration">/</li>
-                    </section>
-                    <div class="arrows"></div>
-                </section>
-
-            </header>
-
-
-
-            <main>
-                <!-- <section id="about" >
-                    <h1 class = "titles"> Acerca de mí </h1>
-        
-                </section> -->
-                <section id="Proyectos">
-                    <div id="enlaces">
-
-                        <h1 class="titles"> Proyectos </h1>
-
-                        <a href="/Encriptación/index.html"> Proyecto de encriptación para Oracle
-                            <figure>
-                                <img src="https://drive.google.com/uc?export=view&id=15xpKwEUdch_462X2s1Nb5l1Gd8qKknBs"
-                                    alt="BugT">
-                            </figure>
-                        </a>
-                        </a>
-
-                     
-                        <a href="/dibujo.html"> DIBUJA LINEAS JAVASCRIPT
-                            <figure>
-                                <img src="https://drive.google.com/uc?export=view&id=1sYnU7vSAU5z_727kWFRJvkYlA9k8vwEW"
-                                    alt="DibujoLineas">
-                            </figure>
-                        </a>
-                        
-                        <a href="https://codepen.io/christianmoralopez/pens/public"> PROYECTOS DE DISEÑO HTML CSS
-                            <figure>
-                                <img src="https://drive.google.com/uc?export=view&id=18IFGz7Xa-B4-uCr_I1B19Ks3nFGGd77m"
-                                    alt=" Pen">
-                            </figure></a>
-                        <a href="/MemoryGame.html"> JUEGO DE MEMORIA, JAVASCRIPT
-                            <figure>
-                                <img src="https://drive.google.com/uc?export=view&id=1AeGUXpIjmfsroxak51teaiFJ_f9rwqYq"
-                                    alt=" MemoryGame">
-                            </figure>
-                        </a>
-                        </a>
-                        <a href="/Bug/BugTracker.html"> BUG TRACKER, O SEGUIMIENTO DE TAREAS, JAVASCRIPT.
-                            <figure>
-                                <img src="https://drive.google.com/uc?export=view&id=1qbMLTfSBNwl9xJyHaudy4Iz-BEJRIOjW"
-                                    alt="BugT">
-                            </figure>
-                        </a>
-                        </a>
-
-                        <a href="/imc/imc.html"> CALCULADORA DE IMC, JAVASCRIPT.
-                            <figure>
-                                <!-- <img src="https://drive.google.com/uc?export=view&id=1qbMLTfSBNwl9xJyHaudy4Iz-BEJRIOjW" alt="BugT"> -->
-                            </figure>
-                        </a>
-                        <a href="/Mouse/Flechas.html"> PROYECTO DE DIBUJO CON JAVASCRIPT</a>
-                        <a href="/dibujo mouse.html"> OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT</a>
-
-                        <a href="Practicas/ejemplohtml.html">
-                            Acceder a Ejemplo HTML con CSS
-                            <figure>
-                                <img src="https://media.discordapp.net/attachments/976997370132848640/1229574216114765915/trippysanders_2000_x_2000_px_300_dpi_cartooned_red_liquid_SPLAS_0b2ad150-5768-4720-977f-98527becf1af.png?ex=66302d39&is=661db839&hm=e02c29ec53dc1cbcb556a9cf1b8938af4dc08a957a52755a9c3934dccb8f9814&=&format=webp&quality=lossless&width=350&height=350"
-                                    alt="BugT">
-                            </figure>
-
-                        </a>
-                          
-                     
-
-
-
-
-                </section>
+    <div class="container">
+        <section id="projects" class="section">
+            <h2>Proyectos</h2>
+            <div class="projects">
+                <div class="project">
+                    <a href="/Encriptación/index.html">
+                        <img src="https://media.discordapp.net/attachments/953413844183683082/955395585232498738/2790a5e8-0429-4ec1-93e7-5a4d98ed8d07_hierarchical_generative_space_graph_encoder_poster_art.png?ex=662f6679&is=661cf179&hm=a0a503bca21a8d231a32bf909661157ad1907975a191a7ced1d965de8d89dea2&=&format=webp&quality=lossless&width=415&height=623" alt="Project 1">
+                        <h3>Proyecto de encriptación para Oracle</h3>
+                    </a>
+                    <p>Este proyecto consiste en una aplicación de encriptación desarrollada para la plataforma Oracle, proporcionando una capa adicional de seguridad para los datos sensibles.</p>
+                </div>
+                <div class="project">
+                    <a href="/dibujo.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 2">
+                        <h3>DIBUJA LINEAS JAVASCRIPT</h3>
+                    </a>
+                    <p>Descripción del proyecto 2.</p>
+                </div>
+                <div class="project">
+                    <a href="https://codepen.io/christianmoralopez/pens/public">
+                        <img src="https://via.placeholder.com/250" alt="Project 3">
+                        <h3>PROYECTOS DE DISEÑO HTML CSS</h3>
+                    </a>
+                    <p>Descripción del proyecto 3.</p>
+                </div>
+                <div class="project">
+                    <a href="/MemoryGame.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 4">
+                        <h3>JUEGO DE MEMORIA, JAVASCRIPT</h3>
+                    </a>
+                    <p>Descripción del proyecto 4.</p>
+                </div>
+                <div class="project">
+                    <a href="/Bug/BugTracker.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 5">
+                        <h3>BUG TRACKER, O SEGUIMIENTO DE TAREAS, JAVASCRIPT.</h3>
+                    </a>
+                    <p>Descripción del proyecto 5.</p>
+                </div>
+                <div class="project">
+                    <a href="/imc/imc.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 6">
+                        <h3>CALCULADORA DE IMC, JAVASCRIPT.</h3>
+                    </a>
+                    <p>Descripción del proyecto 6.</p>
+                </div>
+                <div class="project">
+                    <a href="/Mouse/Flechas.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 7">
+                        <h3>PROYECTO DE DIBUJO CON JAVASCRIPT</h3>
+                    </a>
+                    <p>Descripción del proyecto 7.</p>
+                </div>
+                <div class="project">
+                    <a href="/dibujo mouse.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 8">
+                        <h3>OTRO PROYECTO DIBUJAR MOUSE JAVASCRIPT</h3>
+                    </a>
+                    <p>Descripción del proyecto 8.</p>
+                </div>
+                <div class="project">
+                    <a href="Practicas/ejemplohtml.html">
+                        <img src="https://via.placeholder.com/250" alt="Project 9">
+                        <h3>Acceder a Ejemplo HTML con CSS</h3>
+                    </a>
+                    <p>Descripción del proyecto 9.</p>
+                </div>
+                <!-- Agrega más proyectos aquí -->
+            </div>
+        </section>
     </div>
-    </section>
-    <!-- <section id="Blog" >
-                    <h1 class = "titles"> Blog </h1>
-            
-                </section>
-                <section id="Contacto" >
-                    <h1 class = "titles"> Contacto </h1>
-            
-                </section>
-             </section> -->
-    </div>
-
-    </main>
 </body>
 
 </html>
