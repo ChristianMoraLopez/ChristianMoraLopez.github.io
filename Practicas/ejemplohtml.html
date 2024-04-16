@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #556270);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        nav ul li a:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffd700;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        nav ul li a:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: #ddd;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover:before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-top: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card p {
+            color: #ccc;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .image1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated-section {
+            animation: fadeInUp 1s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Página Web</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="animated-section">
+            <h2 class="text-center">Sección 1</h2>
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit quam vel turpis interdum, in fringilla elit mollis.</p>
+            <div class="image1">
+                <img src="https://media.discordapp.net/attachments/976997370132848640/1229571012455170108/trippysanders_2000_x_2000_px_300_dpi_cartooned_light_red_soda_d_987652d1-281c-41f4-b27a-b282e0e02593.png?ex=66302a3d&is=661db53d&hm=654d2b7c8d8b64aaf7bde2d0d9bf8911449d95eb6d665388548d16568f32a55d&=&format=webp&quality=lossless&width=623&height=623" alt="Ejemplo de imagen">
+            </div>
+            <a href="#" class="button">Botón de ejemplo</a>
+        </section>
+        <section class="animated-section">
+            <h2 class="text-center">Sección 2</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="image1">
+                        <img src="https://cdn.discordapp.com/attachments/976997370132848640/1229574059520688168/trippysanders_2000_x_2000_px_300_dpi_cartooned_red_soda_SPLASH__aa026248-fe79-466d-83e7-b3ee74b34181.png?ex=66302d14&is=661db814&hm=90a173943d0a6836b9f72a2f6155c9eb60576d6fc418b946411b3d8ac1c5de99&" alt="Ejemplo de imagen">
+                    </div>
+                    <h3>Título de la tarjeta 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <div class="image1">
+                        <img src="https://media.discordapp.net/attachments/976997370132848640/1229574602599170239/trippysanders_2000_x_2000_px_300_dpi_cartooned_red_liquid_SPLAS_4aac5903-f3e1-42f9-be13-d37c34b2b957.png?ex=66302d95&is=661db895&hm=67e63ea1a46d043f6e2408e59aed6bebc04d019b16c20e812aae8015cda39b92&=&format=webp&quality=lossless&width=350&height=350" alt="Ejemplo de imagen">
+                    </div>
+                    <h3>Título de la tarjeta 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <div class="image1">
+                        <img src="https://media.discordapp.net/attachments/976997370132848640/1229571006189015050/trippysanders_2000_x_2000_px_300_dpi_cartooned_light_red_soda_d_949f6b8e-aa7c-4c87-b90a-b6b0960dff69.png?ex=66302a3c&is=661db53c&hm=710c25313ab2ac38b3c4ffe8fcd33414fee3ba89f0605885ca7007aa3fb57672&=&format=webp&quality=lossless&width=623&height=623" alt="Ejemplo de imagen">
+                    </div>
+                    <h3>Título de la tarjeta 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Página Web</p>
+    </footer>
+</body>
+</html>
