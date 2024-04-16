@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio de Christian Mora</title>
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=13t4dDip-NhgJxn-bzPUBSKsOARI1lQZX" />
+    <link rel="shortcut icon" href="/images/logo.svg" />
     <style>
         /* Estilos personalizados */
         * {
@@ -83,7 +83,7 @@
 
         .container {
             max-width: 1200px;
-            margin: 200px auto 0 auto; /* Aumenté el margen superior para dar espacio al encabezado */
+            margin: 150px auto 0 auto; /* Aumenté el margen superior para dar espacio al encabezado */
             padding: 20px;
         }
 
@@ -201,30 +201,73 @@
             align-items: center;
         }
 
-        #eye-container {
-            visibility: collapse;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
-}
+        /* Nuevos estilos para la sección de información */
+        .info-section {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .info-section h2 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .info-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            line-height: 1.6;
+            animation: slideIn 1s ease forwards;
+            position: relative;
+            top: 50px;
+            opacity: 0;
+        }
+
+        .info-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem; /* Aumenté el tamaño de fuente para mejor legibilidad */
+        }
+
+        .info-content p strong {
+            color: #008cba; /* Color destacado para texto fuerte */
+        }
+
+        .info-content ul {
+            margin-left: 20px; /* Añadí un margen a las listas para mejor legibilidad */
+        }
 
         /* Ajustes para la animación */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                top: 50px;
+            }
+            to {
+                opacity: 1;
+                top: 0;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            .section {
+            .section, .info-section {
                 opacity: 1;
                 transform: none;
             }
         }
     </style>
 </head>
+</head>
 
 <body>
     <header>
         <div class="containerIcon">
             <a href="/">
-                <!-- Agregar logo aquí -->
+                <img src="/images/logo.svg">
             </a>
         </div>
         <h1>Portafolio de Christian Mora</h1>
@@ -326,6 +369,38 @@
                     </div>
                 </div>
                 <!-- Agregar más proyectos aquí -->
+            </div>
+        </section>
+    </div>
+
+
+    
+    <div class="container">
+        <section id="about" class="info-section">
+            <h2>Acerca de mí</h2>
+            
+            
+            <div class="info-content">
+                <p><strong>Christian Mora</strong></p>
+                <p>Desarrollador de Software / Análisis y procesamiento de datos</p>
+                <p>christianmoralopez@hotmail.com | Bogotá, Colombia | 3144715980</p>
+                <p><strong>Perfil</strong></p>
+                <p>Técnico laboral y estudiante en formación de semestre de Ingeniería cuarto Software, con conocimientos certificables en PHP; JAVA; Java JPA y JDBC, Bases de datos (SQL)(mySQL), Servlet. Java Hibernate. Java Spring, Frontend Developer con énfasis en Tailwind y Bootstrap.
+                    Con interés en brindar apoyo a proyectos para el desarrollo de páginas web y sistemas de consultas de bases de datos; mediante la recepción y categorización de requerimientos de cliente; análisis e implementación de metodologías ágiles de desarrollo;
+                    así como, conceptualización por medio de esquemas, uso de lenguajes de programación tales como, HTML, JavaScript/React, C#, R, GIT. Con capacidad análisis, pensamiento conceptual, orientación a resultados y solución a problemas.</p>
+                <p><strong>Historial Laboral</strong></p>
+                <p><strong>Representate de atención al Cliente para Amazon Inglés.</strong></p>
+                <p>Octubre 2023 - Actual</p>
+                <ul>
+                    <li>Proporcioné asistencia integral a clientes de habla inglesa a través de diversos canales de comunicación, como chat en vivo, correo electrónico y llamadas telefónicas.</li>
+                    <li>Resolví consultas y problemas de manera efectiva, manteniendo altos niveles de satisfacción del cliente.</li>
+                    <li>Colaboré estrechamente con equipos internos para garantizar la resolución rápida y eficiente de problemas técnicos, de envío y de producto.</li>
+                    <li>Participé en sesiones de formación continua para mantenerme actualizado sobre los productos y políticas de Amazon.</li>
+                    <li>Mantuve registros precisos de interacciones con clientes utilizando sistemas de gestión de relaciones con el cliente (CRM).</li>
+                    <li>Contribuí al desarrollo y mejora de procesos internos mediante la retroalimentación constante y la identificación de áreas de oportunidad.</li>
+                </ul>
+                <p><strong>Habilidades Destacadas</strong></p>
+                <p>Comunicación en Inglés: Fluidez y habilidad para comunicarme de manera efectiva en inglés, tanto oralmente como por escrito.</p>
             </div>
         </section>
     </div>
