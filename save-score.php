@@ -1,9 +1,12 @@
 <?php
+header("Access-Control-Allow-Origin: null");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
 // Conexión a la base de datos
 $servername = "database-2.culxyrdczvz6.us-east-2.rds.amazonaws.com";
 $username = "admin";
 $password = "4682oscuridad";
-$database = "database-2";
+$database = "innodb"; // El nombre de tu base de datos
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
