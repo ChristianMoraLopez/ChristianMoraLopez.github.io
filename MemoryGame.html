@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -233,7 +236,7 @@ header a {
     <label for="grid-rows">Cantidad de filas:</label>
     <input type="number" id="grid-rows" value="2" min="2" max="8">
     <button onclick="resetGame()">Reiniciar Juego</button>
-    <div id="error-message" style=>
+    <div id="error-message">
       <p class="error-text">El número de filas y columnas no coincide con la cantidad de casillas.</p>
     </div>
   </div>
@@ -244,11 +247,24 @@ header a {
   <div id="message-panel" style="display: none;">
     <h2>¡Ganaste!</h2>
     <p>Has realizado <span id="attempts"></span> intentos en <span id="time"></span> segundos.</p>
+    <form id="score-form">
+      <label for="player-name">Nombre del jugador:</label>
+      <input type="text" id="player-name" name="player-name" required>
+      <input type="hidden" id="score" name="score" value="">
+      <button type="submit">Guardar Puntaje</button>
+    </form>
   </div>
-
+  <h2>Top 10 Jugadores</h2>
+  <?php include 'top-scores.php'; ?>
+  
   <footer>
     <a href="/index.html">Vuelve al inicio</a>
   </footer>
+
+<script> 
+
+</script>
+
   <script>
     const gameBoard = document.getElementById('game-board');
     const secondsDisplay = document.getElementById('seconds');
@@ -262,6 +278,38 @@ header a {
     let secondsElapsed = 0;
     let timerInterval;
     let counter = 0;
+
+
+    document.getElementById('score-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const playerName = document.getElementById('player-name').value;
+    const score = document.getElementById('seconds').textContent;
+    
+    // Envía los datos al servidor para guardarlos en la base de datos
+    saveScore(playerName, score);
+});
+
+function saveScore(playerName, score) {
+    // Envía una solicitud HTTP al servidor para guardar los datos
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/save-score.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Limpiar el formulario o mostrar un mensaje de éxito
+            document.getElementById('score-form').reset();
+            // Otra lógica, como mostrar un mensaje de éxito al usuario
+        } else {
+            // Manejar errores
+            console.error('Error al guardar el puntaje:', xhr.statusText);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Error de red al intentar guardar el puntaje.');
+    };
+    xhr.send(`playerName=${encodeURIComponent(playerName)}&score=${encodeURIComponent(score)}`);
+}
+    
 
     function generateGameCards() {
       const gridSize = parseInt(gridSizeInput.value);
