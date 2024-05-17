@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="/public/images/descarga.png" type="img/png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCompensar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/output.css">
+    <style>
+      
+
+        
+    </style>
+</head>
+
+<body>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var labelForm = document.querySelectorAll(".labelInput");
+            var inputForm = document.querySelectorAll(".form-group input, .form-group select");
+
+            inputForm.forEach(function (input) {
+                input.addEventListener("focus", function () {
+                    var label = this.previousElementSibling;
+                    label.style.transform = "translateY(-100%)";
+                    label.style.fontSize = "10px";
+                });
+
+                input.addEventListener("blur", function () {
+                    var label = this.previousElementSibling;
+                    if (this !== document.activeElement && this.value === "") {
+                        label.style.transform = "translateY(0)";
+                        label.style.fontSize = "14px";
+                    }
+                });
+            });
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var dropdownLinks = document.querySelectorAll(".dropdown-menu li a, .dropdown-menu-first li a");
+
+            dropdownLinks.forEach(function (link) {
+                link.addEventListener("mouseover", function () {
+                    // Cambia el color del enlace al color deseado
+                    this.style.color = "#f60";
+                    this.style.fontWeight = "bold";
+
+                    // Accede al elemento de menú desplegable y cambia su color de fondo
+                    var dropdownMenu = this.closest(".dropdown-menu, .dropdown-menu-first");
+                    if (dropdownMenu) {
+                        dropdownMenu.style.backgroundColor = "#f9f9f9";
+                    }
+                });
+
+                link.addEventListener("mouseout", function () {
+                    // Restablece el color del enlace cuando el cursor sale
+                    this.style.color = "";
+                    this.style.fontWeight = ""; // Restablece el estilo de fuente
+
+                    // Restablece el color de fondo del menú desplegable
+                    var dropdownMenu = this.closest(".dropdown-menu, .dropdown-menu-first");
+                    if (dropdownMenu) {
+                        dropdownMenu.style.backgroundColor = "";
+                    }
+                });
+            });
+
+            var dropdownSideLinks = document.querySelectorAll(".dropdownSide");
+
+            dropdownSideLinks.forEach(function (link) {
+                link.addEventListener("mouseover", function () {
+                    var arrowRight = this.querySelector(".arrow-right");
+                    if (arrowRight) {
+                        arrowRight.classList.add("visible");
+                    }
+                });
+
+                link.addEventListener("mouseout", function () {
+                    var arrowRight = this.querySelector(".arrow-right");
+                    if (arrowRight) {
+                        arrowRight.classList.remove("visible");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+    <header class="headerNav">
+        <container class="navContainer">
+            <nav class="flex justify-between navbar">
+                <a class="navbar-brand" href="/public/index.html">
+                    <img src="/public/images/main-logo.svg" width="280px" />
+                </a>
+                <ul class="mt-5 mr-10 flex-row navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/graduados.html">Graduados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/estudiantes.html">Estudiantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/estado-admision.html">Estado de Admisión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/reingresos.html">Reingresos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/pago-en-linea.html">Pago en Línea</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/aplicativos.html">Aplicativos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/emisora.html">Emisora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/public/blog.html">Blog</a>
+                    </li>
+                    <!-- Aquí agregamos la lista desplegable -->
+                </ul>
+            </nav>
+            </li>
+        </container>
+        </ul>
+
+        <container class="navContainerMenu ">
+            <ul class="navbar-nav1">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        La Institución
+                    </a>
+                    <ul class="dropdown-menu-first" aria-labelledby="navbarDropdown1">
+                        <li class="dropdownSide">
+                            <a class="dropdown-item"
+                                href="https://ucompensar.edu.co/nuestra-institucion/nuestra-historia/">Nuestra
+                                Historia</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <li><a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/nuestra-institucion/sedes-y-contacto/">Sedes y
+                                        Contacto</a></li>
+                                <li><a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/secretaria-general/">Secretaría General</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/curriculo-institucional/">Lineamiento Curricular</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://ucompensar.edu.co/documentos-de-interes/">Documentos
+                                de Interés</a></li>
+                        <li><a class="dropdown-item" href="https://ucompensar.edu.co/investigacion/">Investigación</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://ucompensar.edu.co/formacion-virtual/">Formación
+                                Virtual</a></li>
+                        <li><a class="dropdown-item" href="https://recorrido.ucompensar.edu.co/index.htm">Recorrido
+                                Virtual - Sede Bogotá</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://formacionesucompensar.co/Recorrido_Sede_Meta/">Recorrido Virtual - Sede
+                                Meta</a></li>
+                        <li><a class="dropdown-item" href="https://misionmatricula.ucompensar.edu.co/">Campus Game
+                                Misión matrícula</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav2">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Estudia con Nosotros
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <li><a class="dropdown-item" href="https://ucompensar.edu.co/inscripciones/paso-a-paso/">Paso a
+                                Paso</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/inscripciones/estado-de-admision/">Estado de
+                                Admisión</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/verificaciones-academicas/">Solicitud de Verificaciones
+                                Académicas</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/inscripciones/calendario-de-admisiones/">Calendario de
+                                Admisiones</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/inscripciones/homologacion/">Homologación</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <li class="dropdown"><a class="dropdown-toggle" href="#" role="button" id="navbarDropdown3"
+                    data-bs-toggle="dropdown" aria-expanded="false"
+                    href="https://ucompensar.edu.co/facultades/">Facultades</a></li>
+
+            <ul class="navbar-nav3">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown3" data-bs-toggle="dropdown"
+                        aria-expanded="false" href="https://ucompensar.edu.co/programas/">Programas</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <li class="dropdownSide">
+                            <a class="dropdown-item"
+                                href="https://ucompensar.edu.co/programas/#programas-academicos">Programas Académicos
+                                <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                    alt="arrow" class="arrow-right">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdownSide">
+                                    <a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/programas/#pregrado-bogota-programas-academicos">Pregrado
+                                        Bogotá
+                                        <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                            alt="arrow" class="arrow-right">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdownSide">
+                                            <a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/facultades/facultad-de-ingenieria/">Facultad
+                                                de Ingeniería
+                                                <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                                    alt="arrow" class="arrow-right">
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/ingenieria-multimedia-bogota/">Ingeniería
+                                                        Multimedia</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/ingenieria-industrial-pregrado-bogota/">Ingeniería
+                                                        Industrial</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/ingenieria-de-software-bogota/"
+                                                        aria-current="page">Ingeniería de Software</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/ingenieria-de-sistemas-bogota/">Ingeniería
+                                                        de Sistemas</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/ingenieria-de-telecomunicaciones-bogota/">Ingeniería
+                                                        de Telecomunicaciones</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/ciencia-de-datos/">Ciencia
+                                                        de Datos</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/tecnologia-en-productividad-y-mejoramiento-continuo-bogota/">Tecnología
+                                                        en Productividad y Mejoramiento Continuo</a></li>
+                                                <li><a class="dropdown-item"
+                                                        href="https://ucompensar.edu.co/programas/tecnologia-en-operaciones-de-manufactura-y-servicios-bogota/">Tecnología
+                                                        en Operaciones de Manufactura y Servicios</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdownSide">
+                                    <a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/facultades/facultad-de-educacion/">Facultad
+                                        de Ciencias Sociales y de la Educación
+                                        <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                            alt="arrow" class="arrow-right">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/licenciatura-en-bilinguismo-con-enfasis-en-ingles-bogota/">Licenciatura
+                                                en Bilingüismo con Énfasis en Inglés</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/licenciatura-en-educacion-infantil-bogota/">Licenciatura
+                                                en Educación Infantil</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/tecnologia-en-educacion-infantil-bogota/">Profesional
+                                                en Lenguas</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/licenciatura-en-educacion-fisica-recreacion-y-deporte-bogota/">Profesional
+                                                en Deporte y Actividad Física</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/comunicacion-social/">Comunicación
+                                                Social</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/diseno-visual/">Diseño
+                                                Visual</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdownSide">
+                                    <a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/programas/#pregrado-bogota-programas-academicos">Pregrado
+                                        Virtual
+                                        <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                            alt="arrow" class="arrow-right">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-multimedia-bogota/">Ingeniería
+                                                Multimedia</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-industrial-pregrado-bogota/">Ingeniería
+                                                Industrial</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-de-software-bogota/"
+                                                aria-current="page">Ingeniería de Software</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-de-sistemas-bogota/">Ingeniería
+                                                de Sistemas</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-de-telecomunicaciones-bogota/">Ingeniería
+                                                de Telecomunicaciones</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ciencia-de-datos/">Ciencia
+                                                de Datos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/tecnologia-en-productividad-y-mejoramiento-continuo-bogota/">Tecnología
+                                                en Productividad y Mejoramiento Continuo</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/tecnologia-en-operaciones-de-manufactura-y-servicios-bogota/">Tecnología
+                                                en Operaciones de Manufactura y Servicios</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdownSide">
+                                    <a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/programas/#pregrado-bogota-programas-academicos">Pregrado
+                                        Meta
+                                        <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                            alt="arrow" class="arrow-right">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-multimedia-bogota/">Administración
+                                                Logística
+                                            </a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-industrial-pregrado-bogota/">
+                                                Administración de Empresas</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-de-software-bogota/"
+                                                aria-current="page">Contaduría Pública</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-de-sistemas-bogota/">Licenciatura
+                                                en Educación Infantil – Meta</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ingenieria-de-telecomunicaciones-bogota/">Licenciatura
+                                                en Bilingüismo con Énfasis en Inglés</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/ciencia-de-datos/">Ingeniería
+                                                de Sistemas</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/tecnologia-en-productividad-y-mejoramiento-continuo-bogota/">Ingeniería
+                                                de Telecomunicaciones</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/tecnologia-en-operaciones-de-manufactura-y-servicios-bogota/">Mercadeo
+                                                y Publicidad</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdownSide">
+                                    <a class="dropdown-item"
+                                        href="https://ucompensar.edu.co/programas/#pregrado-bogota-programas-academicos">Posgrado
+                                        Virtual y Presencial
+                                        <img src="https://ucompensar.edu.co/wp-content/themes/wp-compensar/assets/img/slider-orange-mob-right-arrow.svg"
+                                            alt="arrow" class="arrow-right">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-seguridad-informatica/">Especialización
+                                                en Seguridad Informática</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-gerencia-de-la-comunicacion-estrategica-bogota/">Especialización
+                                                en Gerencia de la Comunicación Estratégica</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-big-data-virtual/">Especialización
+                                                en Big Data – Virtual</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-big-data-bogota/">Especialización
+                                                en Big Data</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-finanzas-virtual/">Especialización
+                                                en Finanzas – Virtual</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-finanzas-presencial/">Especialización
+                                                en Finanzas – Presencial</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-gerencia-de-la-comunicacion-estrategica-virtual/">Especialización
+                                                en Gerencia de la Comunicación Estratégica – Virtual</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-inteligencia-y-prospectiva-de-negocios-virtual/">Especialización
+                                                en Inteligencia y Prospectiva de Negocios – Virtual</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-inteligencia-y-prospectiva-de-negocios-presencial/">Especialización
+                                                en Inteligencia y Prospectiva de Negocios – Presencial</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-narrativas-y-lenguajes-digitales-virtual/">Especialización
+                                                en Narrativas y Lenguajes Digitales – Virtual</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-narrativas-y-lenguajes-digitales/">Especialización
+                                                en Narrativas y Lenguajes Digitales</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-contabilidad-y-auditoria-en-entornos-digitales-virtual/">Especialización
+                                                en Contabilidad y Auditoría en Entornos Digitales – Virtual</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-contabilidad-y-auditoria-en-entornos-digitales/">Especialización
+                                                en Contabilidad y Auditoría en Entornos Digitales</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-seguridad-y-salud-en-el-trabajo/">Especialización
+                                                en Seguridad y Salud en el Trabajo</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://ucompensar.edu.co/programas/especializacion-en-seguridad-y-salud-en-el-trabajo-virtual/">Especialización
+                                                en Seguridad y Salud en el Trabajo – Virtual</a></li>
+
+
+
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <span class="angle-down"></span>
+
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+            <li class="dropdown"><a class="dropdown-toggle" href="#" role="button" id="navbarDropdown3"
+                    data-bs-toggle="dropdown" aria-expanded="false" href="https://ucompensar.edu.co/facultades/">Nuevo
+                    Campus</a></li>
+
+            <li class="dropdown"><a class="dropdown-toggle" href="#" role="button" id="navbarDropdown3"
+                    data-bs-toggle="dropdown" aria-expanded="false"
+                    href="https://ucompensar.edu.co/facultades/">SENA</a></li>
+
+
+
+            <ul class="navbar-nav3">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown3" data-bs-toggle="dropdown"
+                        aria-expanded="false" href="https://ucompensar.edu.co/facultades/">Zona Financiera</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <li><a class="dropdown-item" href="https://ucompensar.edu.co/zona-financiera/becas/">Becas 2024
+                                -1</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/zona-financiera/convenios/">Convenios</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/zona-financiera/opciones-de-financiacion/">Opciones de
+                                financiación</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/solicitud-apoyo-financiero/">Solicitud apoyo
+                                financiero</a></li>
+                        <li><a class="dropdown-item" href="https://ucompensar.edu.co/?page_id=12994">Calendario
+                                Financiero</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://ucompensar.edu.co/zona-financiera/la-forma-mas-facil-de-pagar/">La forma
+                                más fácil de pagar</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <li class="dropdown"><a class="dropdown-toggle" href="#" role="button" id="navbarDropdown3"
+                    data-bs-toggle="dropdown" aria-expanded="false"
+                    href="https://ucompensar.edu.co/facultades/">EdTech</a>
+            </li>
+
+
+            <span class="angle-down"></span>
+
+            </ul> <span class="search-icon"></span>
+
+
+        </container>
+
+    </header>
+
+    <main class="container mt-5">
+        <div class="row">
+
+            <section class="col-md form-container  ">
+                <section class="invite-container">
+                    <p>Desarrolla soluciones de <strong>software</strong> y conviértete en un líder digital de uno de
+                        los sectores con mayor crecimiento del mercado. Obtén tres titulaciones a lo largo de tu
+                        formación.</p>
+                    <a href="#" target="_blank" class="orange-btn ">Inscríbete aquí</a>
+                </section>
+                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST"
+                    target="_parent">
+                    <input type="hidden" name="oid" value="00D5f0000088teF">
+                    <input type="hidden" name="retURL" value="https://ucompensar.edu.co/gracias" target="_blank">
+
+                    <div class="form-grid">
+
+                        <!-- Eres estudiante -->
+                        <div class="form-group">
+                            <label class="labelDropdown" for="student">Eres estudiante UCompensar?</label>
+                            <select id="student" name="student" required>
+                                <option value="">-- Seleccione --</option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <!-- Nombre -->
+                        <div class="form-group">
+                            <label class="labelInput" for="first_name">Nombre</label>
+                            <input type="text" name="first_name" id="first_name" required>
+                        </div>
+
+                        <!-- Apellido -->
+                        <div class="form-group">
+                            <label class="labelInput" for="last_name">Apellido</label>
+                            <input type="text" name="last_name" id="last_name" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label class="labelInput" for="email">Email</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+
+                        <!-- Número de documento -->
+                        <div class="form-group">
+                            <label class="labelInput" for="id_number">Número de documento</label>
+                            <input type="text" name="id_number" id="id_number" required>
+                        </div>
+
+                        <!-- Número de documento -->
+                        <div class="form-group">
+                            <label class="labelInput" for="id_number">Número de documento</label>
+                            <input type="text" name="id_number" id="id_number" required>
+                        </div>
+
+                        <!-- Canal preferido de contacto -->
+                        <div class="form-group">
+                            <label class="labelDropdown" for="contact_channel">Canal preferido de contacto</label>
+                            <select id="contact_channel" name="contact_channel" required>
+                                <option value="">-- Seleccione --</option>
+                                <option value="Correo">Correo</option>
+                                <option value="Teléfono">Teléfono</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="SMS">SMS</option>
+                            </select>
+                        </div>
+
+                        <!-- Cómo se enteró -->
+                        <div class="form-group">
+                            <label class="labelDropdown" for="referrer">Cómo se enteró</label>
+                            <select id="referrer" name="referrer" required>
+                                <option value="">-- Seleccione --</option>
+                                <option value="Buscadores">Buscadores (Google-Bing-Safari)</option>
+                                <option value="Publicidad">Publicidad</option>
+                                <option value="Redes Sociales">Redes Sociales</option>
+                                <option value="Recomendación">Recomendación de un amigo</option>
+                                <option value="Correo">Correo</option>
+                                <option value="Llamada">Llamada</option>
+                                <option value="Evento">Evento - Feria</option>
+                                <option value="Visita">Visita a la U</option>
+                                <option value="Radio">Radio</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <!-- Acepto la política -->
+                        <div class="form-group">
+                            <input type="checkbox" id="policy" name="policy" required>
+                            <label for="policy">Acepto la Política de Protección de Datos Personales</label>
+                        </div>
+
+                        <!-- Enviar -->
+                        <div class="form-group-button">
+                            <button type="submit">Enviar</button>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </form>
+            </section>
+
+            <section class=" col-sm info-container">
+                <img src="https://ucompensar.edu.co/wp-content/uploads/2021/04/ingenieria-software-ucompensar.jpg"
+                    alt="Ingeniería de Software" width="100%">
+                <div class="information">
+                    <ul>
+                        <li><span>SNIES:</span>109130</li>
+                        <li><span>Resolución:</span>9058 del 28 de agosto de 2019</li>
+                        <li><span>Duración del programa:</span>10 semestres</li>
+                        <li><span>Facultad de:</span>Ingeniería</li>
+                        <li><span>Años de vigencia:</span>7 años</li>
+                        <li><span>Jornada diurna:</span>7:00 a.m. a 1:00 p.m. </li>
+                        <li><span>Jornada nocturna:</span>6:00 p.m. a 10:00 p.m.</li>
+                        <li><span>Ver tarifas de créditos:</span><a style="font-size: 1rem; color: #ffffff"
+                                href="https://ucompensar.edu.co/wp-content/uploads/2024/01/ProgramaINGENIERIA-DE-SOFTWARE-BOGOTA.pdf">Aquí</a>
+                        </li>
+                    </ul>
+                </div>
+                <span class="info-mineducion">Información Mineducación</span>
+            </section>
+
+        </div>
+
+        <section class="container mt-5">
+            <h3>Titulaciones</h3>
+            <div class="row card-container-block">
+
+                <section class="col-md card-block">
+                    <span class="card-tag">Técnica Profesional en </span>
+                    <p class="description">Programación de Aplicaciones de Software </p>
+                    <p class="address-tag">Resolución 9059 del 28 de agosto de 2019<br>
+                        Años de vigencia: 7 años <br>
+                        SNIES: 108334<br>
+                        <br>
+                        <a href="https://ucompensar.edu.co/wp-content/uploads/2024/01/ProgramaINGENIERIA-DE-SOFTWARE-BOGOTA.pdf"
+                            target="_blank">Ver tarifas de créditos aquí </a>
+                    </p>
+
+                </section>
+
+                <section class="col-md card-block">
+                    <span class="card-tag">Tecnología en </span>
+                    <p class="description">Desarrollo de Aplicaciones Web y Móviles</p>
+                    <p class="address-tag">Resolución 9057 del 28 de agosto de 2019<br>
+                        Años de vigencia: 7 años <br>
+                        SNIES: 108335<br>
+                        <br>
+                        <a href="https://ucompensar.edu.co/wp-content/uploads/2024/01/ProgramaINGENIERIA-DE-SOFTWARE-BOGOTA.pdf"
+                            target="_blank">Ver tarifas de créditos aquí </a>
+                    </p>
+
+                </section>
+
+                <section class="col-md card-block">
+                    <span class="card-tag">Profesional en </span>
+                    <p class="description">Ingeniería de Software </p>
+                    <p class="address-tag">Resolución 9058 del 28 de agosto de 2019<br>
+                        Años de vigencia: 7 años<br>
+                        SNIES: 109130<br>
+                        <br>
+                        <a href="https://ucompensar.edu.co/wp-content/uploads/2024/01/ProgramaINGENIERIA-DE-SOFTWARE-BOGOTA.pdf"
+                            target="_blank">Ver tarifas de créditos aquí </a>
+                    </p>
+                </section>
+
+                <section class="container mt-5">
+                    <div class="row">
+
+                        <div class="col-md campo-laboral">
+                            <div>
+                                <h3>Campo Laboral</h3>
+                            </div>
+                            <ul>
+                                <li>Ingeniero de calidad.</li>
+                                <li>Ingeniero de requerimientos.</li>
+                                <li>Gerente de proyectos de software.</li>
+                                <li>Líder de desarrollo de software.</li>
+                                <li>Desarrollador de software web.</li>
+                                <li>Integrador de soluciones web y móviles.</li>
+                                <li>Desarrollador de aplicaciones móviles.</li>
+                                <li>Líder Técnico de pruebas.</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md ">
+                            <img src="https://ucompensar.edu.co/wp-content/uploads/2021/04/programadora-software-ucompensar.jpg"
+                                alt=""
+                                data-lazy-src="https://ucompensar.edu.co/wp-content/uploads/2021/04/programadora-software-ucompensar.jpg"
+                                data-ll-status="loaded">
+                        </div>
+
+                        <div class="col-md ">
+
+                            <img src="https://ucompensar.edu.co/wp-content/uploads/2021/04/Ingeniero-de-requerimientos-ucompensar.jpg"
+                                alt="Ingeniero-de-requerimientos-ucompensar"
+                                data-lazy-src="https://ucompensar.edu.co/wp-content/uploads/2021/04/Ingeniero-de-requerimientos-ucompensar.jpg"
+                                data-ll-status="loaded">
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+
+
+        </section>
+        <!-- Sección de Matrículas Abiertas -->
+        <section class="container mt-5 matriculas">
+            <div class="row matriculas-caja">
+
+                <div class="col-md">
+                    <h3>Matrículas Abiertas</h3>
+                    <div>
+                        <p>Somos la institución universitaria para todos y nuestro objetivo es integrar a la comunidad
+                            con
+                            el sector
+                            productivo para afrontar los desafíos del futuro.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col-md experto-img">
+                    <img src="https://ucompensar.edu.co/wp-content/uploads/2021/04/Ingeniero-de-calidad-ucompensar.jpg"
+                        alt="Este será tu perfil" data-lazy-src="" data-ll-status="loaded">
+
+                    <div class="content-perfil">
+                        <h4>Este será tu perfil</h4>
+                        <p>
+                            El ingeniero de software es competente en todas y cada una de las etapas que comprenden el
+                            ciclo de vida de construcción de software como requerimientos, análisis, diseño,
+                            arquitectura, implementación, pruebas y puesta en marcha, así como en administrar tiempos,
+                            recursos y procesos de una manera efectiva para la finalización exitosa de proyectos de
+                            software.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md experto-text">
+                    <h3>Sé un experto en:</h3>
+                    <p>&nbsp;</p>
+                    <ul type="disc">
+
+                        <ul type="disc">
+                            <li>Diseño y desarrollo web.</li>
+                            <li>Diseño UX/UI.</li>
+                            <li>Diseño y desarrollo de aplicaciones móviles.</li>
+                            <li>Arquitectura de software.</li>
+                            <li>Desarrollo backEnd.</li>
+                            <li>Desarrollo frontEnd.</li>
+                            <li>Ingeniería de requerimientos.</li>
+                            <li>Cloud Computing.</li>
+                            <li>Testing y aseguramiento de la calidad.</li>
+                            <li>Metodologías ágiles de desarrollo.</li>
+                            <li>Gestión de proyectos de software.</li>
+                            <li>Integración de tecnologías.</li>
+                        </ul>
+                        <a class="arrow-btn"
+                            href="https://ucompensar.edu.co/wp-content/uploads/2021/04/Brochure-Ingenieria-de-Software-Presencial.pdf"
+                            target="_blank">Plan de Estudios</a>
+                </div>
+
+
+
+            </div>
+
+
+
+    </main>
+
+    <footer>
+        <div class="cmp-wpb-container">
+            <div class="footer-left-block">
+                <img src="https://ucompensar.edu.co/wp-content/uploads/2021/09/Logo-Fundacion-Universitaria-compensar.svg" alt="logo ucompensar" width="474" height="69">
+                <p>Fundación Universitaria Compensar P.J. Resolución 23635 del 23 diciembre 1981 | 12455 del 9 de julio 2020. – VIGILADA MINEDUCACIÓN</p>
+                <p>Para requerimientos de autoridades, tutelas o notificaciones judiciales por favor dirigirse al correo: <a href="mailto:notificacionesjudiciales@ucompensar.edu.co" target="_blank" rel="noopener">notificacionesjudiciales@ucompensar.edu.co</a></p>
+                <div class="redes-w-footer">
+                    <h6>Síguenos en nuestras redes:</h6>
+                    <ul id="menu-social-media" class="menu">
+                        <li><a href="https://www.facebook.com/UCompensar/" class="menu-item menu-item-type-custom menu-item-object-custom"><img src="/public/images/facebook-logo-2.png" alt="logo facebook"></a></li>
+                        <li><a href="https://www.instagram.com/ucompensar/" class="menu-item menu-item-type-custom menu-item-object-custom"><img src="./images/instagram-logo.png" alt="logo instagram"></a></li>
+                        <li><a href="https://www.linkedin.com/school/fundaci%C3%B3n-universitaria-compensar"><img src="./images/linkedin-2.png" alt="logo linkedin"></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCfzWXgwqgfFbAGHtoUVMGnA" class="menu-item menu-item-type-custom menu-item-object-custom"><img src="./images/youtube-logo.png" alt="logo youtube"></a></li>
+                        <li><a href="https://www.tiktok.com/@ucompensar" class="fab fa-tiktok menu-item menu-item-type-custom menu-item-object-custom"><img src="./images/tiktok-logo.png" alt="logo tiktok"></a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="container footer-right-block">
+                <div class="row top-footer-boxes">
+                    <div class="col-md footer-box widget_block active">
+                        <h5>Bogotá</h5>
+                        <p>Sede principal<br>
+                            Avenida (Calle) 32 No. 17 – 30<br>
+                            Teléfono: <a href="tel:338-06-66">338 06 66</a></p>
+                    </div>
+                    <div class="col-md footer-box widget_block">
+                        <h5>Villavicencio</h5>
+                        <p>Sede Cofrem<br>
+                            Carrera 35 No. 20A-02<br>
+                            Vía Catama (antes del Colegio Cofrem)<br>
+                            Teléfono: <a href="tel:608 681 86 40">608 681 86 40</a></p>
+                    </div>
+                    <div class="col-md widget_block">
+                        <div class="icontec-w">
+                            <div class="row icontec-w-inner">
+                                <div class="columna-w" style="background-color:#aaa;"><a href="https://ucompensar.edu.co/wp-content/uploads/2024/03/FUNDACION-UNIVERSITARIA-COMPENSAR-UCOMPENSAR-ISO-9001_2015.pdf" target="_blank"><img src="https://ucompensar.edu.co/wp-content/uploads/2024/03/Sello-ICONTEC_ISO-9001.png" alt="icontec 9001"></a></div>
+                                <div class="columna-w" style="background-color:#bbb;"><a href="https://ucompensar.edu.co/wp-content/uploads/2024/03/FUNDACION-UNIVERSITARIA-COMPENSAR-UCOMPENSAR-NTC-5555_2011.pdf" target="_blank"><img src="https://ucompensar.edu.co/wp-content/uploads/2024/03/Sello-ICONTEC_NTC-5555.png" alt="icontec 5555"></a></div>
+                                <div class="columna-w" style="background-color:#ccc;"><a href="https://ucompensar.edu.co/wp-content/uploads/2024/03/FUNDACION-UNIVERSITARIA-COMPENSAR-UCOMPENSAR-NTC-5666_2011.pdf" target="_blank"><img src="https://ucompensar.edu.co/wp-content/uploads/2024/03/Sello-ICONTEC-Certificacion_de_Servicios.png" alt="icontec Certificación de Servicios"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!--<div id="whatsapp_widget-2" class="widget footer-box widget_whatsapp_widget"><a href="http://wa.me/573173002952" class="whatsapp-btn" target="_blank">Escríbenos a WhatsApp</a></div>-->
+            </div>
+        </div>
+        <div class="btm-footer-box">
+            <h6>links importantes</h6>
+            <ul id="footer_menu" class="">
+                <li><a href="https://ucompensar.edu.co/documentos-de-interes/">Documentos de Interés</a></li>
+                <li><a href="https://ucompensar.edu.co/regimen-tributario-especial/">Régimen Tributario Especial</a></li>
+                <li><a target="_blank" rel="noopener" href="https://recurso.ucompensar.edu.co/Servicio/saleForceWebToCase/src/PQRSF.html">Radica tus PQRSF AQUÍ</a></li>
+                <li><a href="https://ucompensar.edu.co/preguntas-frecuentes/">Preguntas Frecuentes</a></li>
+                <li><a href="https://atracciondetalento.ucompensar.edu.co:8085/frmLogin.aspx">Trabaja con Nosotros</a></li>
+                <li><a href="https://ucompensar.edu.co/wp-content/uploads/2023/12/Resolucion-328-Derechos-Pecuniarios-2024-firmado.pdf">Derechos Pecuniarios</a></li>
+                <li><a href="https://ucompensar.edu.co/wp-content/uploads/2021/06/Resolucion-12455-de-9-de-julio-de-2020.pdf">Estatutos</a></li>
+                <li><a href="https://ucompensar.edu.co/wp-content/uploads/2023/06/POL-PAJ-02-V06-Tratamiento-de-datos-personales.pdf">Tratamiento de datos personales</a></li>
+                <li><a href="https://ucompensar.edu.co/wp-content/uploads/2023/08/Reglamento-estudiantil-v2.pdf">Reglamento estudiantes</a></li>
+                <li><a href="https://ucompensar.edu.co/wp-content/uploads/2022/07/Reglamento-Docente-ucompensar.pdf">Reglamento del profesorado</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+</body>
+
+</html>
+
+
+

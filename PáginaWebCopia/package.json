@@ -1,0 +1,21 @@
+{
+  "name": "Página Compensar Copia",
+  "version": "1.0.0",
+  "description": "Página de Compensar",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css"
+  },
+  "keywords": [
+    "Compensar"
+  ],
+  "author": "Christian",
+  "license": "ISC",
+
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
