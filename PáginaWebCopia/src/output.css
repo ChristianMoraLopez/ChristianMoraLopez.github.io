@@ -11,6 +11,7 @@
   text-decoration: underline;
 }
 
+
 .nav-item {
   margin-right: 40px;
   font-size: 14px;
@@ -24,6 +25,7 @@
   display: block;
   margin: 0 126px 0 126px;
 }
+
 
 .dropdown-toggle {
   text-decoration: none;
@@ -183,6 +185,9 @@
 
 @media screen and (max-width: 768px) {
   .navContainerMenu {
+      display: none;
+  }
+  .navbar-nav {
       display: none;
   }
 }
