@@ -12,18 +12,20 @@
         /* Estilos personalizados */
         * {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+    scroll-behavior: smooth;
         }
 
-        body {
-            background-color: #f2f2f2;
+            body {
+            background: linear-gradient(to bottom, #e0eafc, #cfdef3);
             color: #333;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            padding-top: 80px; /* Adjust to ensure content is below fixed header */
+            transition: background 0.5s ease-in-out;
         }
+        
 
         header {
             background: linear-gradient(to right, #008cba, #006fab);
@@ -36,13 +38,14 @@
             left: 0;
             width: 100%;
             z-index: 999;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.5s ease, opacity 0.5s ease;
-        }
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, padding 0.3s ease;
+}
 
-        header:hover {
-            background: linear-gradient(to right, #006fab, #008cba);
-        }
+header:hover {
+    background: linear-gradient(to right, #006fab, #008cba);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
         header.scrolled {
             background: linear-gradient(to right, #006fab, #008cba);
@@ -157,11 +160,12 @@
 
         .project {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            animation: fadeInUp 1s forwards;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeInUp 1s forwards;
+    transition: transform 0.3s, box-shadow 0.3s;
         }
 
         @keyframes fadeInUp {
@@ -221,11 +225,20 @@
         /* Nuevos estilos para la sección de información */
         .info-section {
             background-color: #f9f9f9;
-            padding: 50px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+    padding: 70px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin-top: 50px;
+    transition: background-color 0.3s, box-shadow 0.3s;
         }
+
+        .info-section:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
         .info-section h2 {
             color: #333;
@@ -250,6 +263,8 @@
             font-size: 1.1rem; /* Aumenté el tamaño de fuente para mejor legibilidad */
         }
 
+        
+
         .info-content p strong {
             color: #008cba; /* Color destacado para texto fuerte */
         }
@@ -259,6 +274,13 @@
         }
 
         /* Ajustes para la animación */
+        @media (prefers-reduced-motion: reduce) {
+    .section, .info-section {
+        opacity: 1;
+        transform: none;
+    }
+}
+
         @keyframes slideIn {
             from {
                 opacity: 0;
