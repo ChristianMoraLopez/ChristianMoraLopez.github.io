@@ -298,6 +298,95 @@
             /* Añadí un margen a las listas para mejor legibilidad */
         }
 
+        .info-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.info-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header h3 {
+    font-size: 2.5rem;
+    color: #008cba;
+    margin-bottom: 10px;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-info span {
+    margin: 0 10px;
+    color: #008cba;
+}
+
+.profile-section, .skills-section, .experience-section, .additional-skills {
+    margin-bottom: 30px;
+}
+
+h4 {
+    color: #008cba;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #008cba;
+    padding-bottom: 5px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: #e0eafc;
+    color: #008cba;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.job h5 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.job-date {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.job ul {
+    padding-left: 20px;
+}
+
+.job li {
+    margin-bottom: 5px;
+}
+
         /* Ajustes para la animación */
         @media (prefers-reduced-motion: reduce) {
 
@@ -383,12 +472,118 @@
             font-family: "Poppins", sans-serif;
             font-weight: 800;
             font-style: normal;
-        }
+        }#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #006fab, #00d2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.loader:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: #ffffff;
+  }
+  40% {
+    stroke: #00ffcc;
+  }
+  66% {
+    stroke: #00ffff;
+  }
+  80%,
+  90% {
+    stroke: #ffffff;
+  }
+}
+
+.loading-text {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
     </style>
 </head>
 </head>
 
 <body>
+    <div id="loading-screen">
+        <div class="loading-content">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+          <div class="loading-text">Iniciando...</div>
+        </div>
+      </div>
+
     <header id="header">
         <div class="containerIcon">
             <a href="/">
@@ -557,46 +752,60 @@
     </div>
 
 
-
     <div class="container">
         <section id="about" class="info-section">
             <h2>Acerca de mí</h2>
-
-
             <div class="info-content">
-                <p><strong>Christian Mora</strong></p>
-                <p>Desarrollador de Software / Análisis y procesamiento de datos</p>
-                <p>christianmoralopez@hotmail.com | Bogotá, Colombia | 3144715980</p>
-                <p><strong>Perfil</strong></p>
-                <p>Técnico laboral y estudiante en formación de semestre de Ingeniería cuarto Software, con
-                    conocimientos certificables en PHP; JAVA; Java JPA y JDBC, Bases de datos (SQL)(mySQL), Servlet.
-                    Java Hibernate. Java Spring, Frontend Developer con énfasis en Tailwind y Bootstrap.
-                    Con interés en brindar apoyo a proyectos para el desarrollo de páginas web y sistemas de consultas
-                    de bases de datos; mediante la recepción y categorización de requerimientos de cliente; análisis e
-                    implementación de metodologías ágiles de desarrollo;
-                    así como, conceptualización por medio de esquemas, uso de lenguajes de programación tales como,
-                    HTML, JavaScript/React, C#, R, GIT. Con capacidad análisis, pensamiento conceptual, orientación a
-                    resultados y solución a problemas.</p>
-                <p><strong>Historial Laboral</strong></p>
-                <p><strong>Representate de atención al Cliente para Amazon Inglés.</strong></p>
-                <p>Octubre 2023 - Actual</p>
-                <ul>
-                    <li>Proporcioné asistencia integral a clientes de habla inglesa a través de diversos canales de
-                        comunicación, como chat en vivo, correo electrónico y llamadas telefónicas.</li>
-                    <li>Resolví consultas y problemas de manera efectiva, manteniendo altos niveles de satisfacción del
-                        cliente.</li>
-                    <li>Colaboré estrechamente con equipos internos para garantizar la resolución rápida y eficiente de
-                        problemas técnicos, de envío y de producto.</li>
-                    <li>Participé en sesiones de formación continua para mantenerme actualizado sobre los productos y
-                        políticas de Amazon.</li>
-                    <li>Mantuve registros precisos de interacciones con clientes utilizando sistemas de gestión de
-                        relaciones con el cliente (CRM).</li>
-                    <li>Contribuí al desarrollo y mejora de procesos internos mediante la retroalimentación constante y
-                        la identificación de áreas de oportunidad.</li>
-                </ul>
-                <p><strong>Habilidades Destacadas</strong></p>
-                <p>Comunicación en Inglés: Fluidez y habilidad para comunicarme de manera efectiva en inglés, tanto
-                    oralmente como por escrito.</p>
+                <div class="profile-header">
+                    <h3>Christian Mora</h3>
+                    <p class="job-title">Desarrollador de Software / Analista de Datos</p>
+                    <p class="contact-info">
+                        <span><i class="fas fa-envelope"></i> christianmoralopez@hotmail.com</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</span>
+                        <span><i class="fas fa-phone"></i> 3144715980</span>
+                    </p>
+                </div>
+                
+                <div class="profile-section">
+                    <h4>Perfil Profesional</h4>
+                    <p>Técnico laboral y estudiante de cuarto semestre de Ingeniería de Software, con sólidos conocimientos en desarrollo web y bases de datos. Especializado en PHP, Java (JPA, JDBC, Hibernate, Spring), y desarrollo frontend con énfasis en Tailwind y Bootstrap. Apasionado por crear soluciones web innovadoras y sistemas de consulta de bases de datos eficientes.</p>
+                </div>
+                
+                <div class="skills-section">
+                    <h4>Habilidades Técnicas</h4>
+                    <ul class="skills-list">
+                        <li>PHP</li>
+                        <li>Java (JPA, JDBC, Hibernate, Spring)</li>
+                        <li>SQL (MySQL)</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript/React</li>
+                        <li>C#</li>
+                        <li>R</li>
+                        <li>Git</li>
+                        <li>Metodologías Ágiles</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-section">
+                    <h4>Experiencia Laboral</h4>
+                    <div class="job">
+                        <h5>Representante de Atención al Cliente para Amazon (Inglés)</h5>
+                        <p class="job-date">Octubre 2023 - Actual</p>
+                        <ul>
+                            <li>Proporciono asistencia integral a clientes anglófonos a través de múltiples canales de comunicación.</li>
+                            <li>Resuelvo consultas y problemas de manera efectiva, manteniendo altos niveles de satisfacción del cliente.</li>
+                            <li>Colaboro con equipos internos para garantizar una resolución rápida y eficiente de problemas técnicos y logísticos.</li>
+                            <li>Participo en formaciones continuas para mantenerme actualizado sobre productos y políticas de Amazon.</li>
+                            <li>Mantengo registros precisos de interacciones con clientes utilizando sistemas CRM.</li>
+                            <li>Contribuyo a la mejora de procesos internos mediante retroalimentación constante.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="additional-skills">
+                    <h4>Habilidades Adicionales</h4>
+                    <p><strong>Comunicación en Inglés:</strong> Fluidez y habilidad para comunicarme de manera efectiva en inglés, tanto oralmente como por escrito.</p>
+                </div>
             </div>
         </section>
     </div>
@@ -637,6 +846,19 @@
         });
 
 
+    </script>
+
+<script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.transition = 'opacity 0.5s ease';
+        setTimeout(function() {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 2000); // Ajusta este valor para cambiar la duración de la animación
+    });
     </script>
 </body>
 
