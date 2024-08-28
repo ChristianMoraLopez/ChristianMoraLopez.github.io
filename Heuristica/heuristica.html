@@ -1,0 +1,215 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principios Heurísticos de Jakob Nielsen</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>Principios Heurísticos de Jakob Nielsen</h1>
+        <p class="subtitle">Una guía para el diseño de interfaces de usuario</p>
+    </header>
+    <div class="container">
+        <!-- Sección de Qué NO hacer -->
+        <section class="column no-hacer">
+            <h2>Qué NO hacer</h2>
+            <!-- Principio 1 -->
+            <div class="principle">
+                <h3>1. Falta de visibilidad del estado del sistema</h3>
+                <p>No mantener al usuario informado sobre lo que está ocurriendo en el sistema puede llevar a la frustración e incertidumbre.</p>
+                <div class="example">
+                    <button onclick="loadContent('no', false)">Cargar contenido</button>
+                    <div id="no-load" class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p><strong>Ejemplo:</strong> Al hacer clic en "Cargar contenido", el usuario no recibe ninguna indicación visual de que la acción está en progreso, dejándolo sin saber si el sistema está respondiendo o no.</p>
+                </div>
+            </div>
+            <!-- Principio 2 -->
+            <div class="principle">
+                <h3>2. Uso de terminología técnica y ajena al usuario</h3>
+                <p>Si el sistema utiliza un lenguaje que no es familiar para el usuario, puede provocar confusión y errores.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Un mensaje de error que dice "Error 404: El recurso solicitado no está disponible en el servidor." usa términos técnicos que muchos usuarios pueden no entender, dejándolos sin saber qué hacer a continuación.</p>
+                </div>
+            </div>
+            <!-- Principio 3 -->
+            <div class="principle">
+                <h3>3. Falta de control y libertad del usuario</h3>
+                <p>Impedir que los usuarios deshagan acciones o salgan de situaciones no deseadas les quita el control sobre la interacción con el sistema.</p>
+                <div class="example">
+                    <button onclick="alert('Esta acción no se puede deshacer.')">Eliminar cuenta</button>
+                    <p><strong>Ejemplo:</strong> Un botón que elimina la cuenta de un usuario sin la posibilidad de deshacer la acción, lo que puede llevar a arrepentimientos y problemas serios si se presiona por error.</p>
+                </div>
+            </div>
+            <!-- Principio 4 -->
+            <div class="principle">
+                <h3>4. Inconsistencia en la interfaz y falta de estándares</h3>
+                <p>Ignorar las convenciones de diseño establecidas y usar elementos de interfaz de manera inconsistente puede confundir a los usuarios y dificultar la navegación.</p>
+                <div class="example">
+                    <button>OK</button>
+                    <button>Aceptar</button>
+                    <button>Sí</button>
+                    <p><strong>Ejemplo:</strong> Tres botones diferentes ("OK", "Aceptar", "Sí") que aparentemente realizan la misma función, pero con terminología inconsistente, lo que puede confundir al usuario sobre cuál debe seleccionar.</p>
+                </div>
+            </div>
+            <!-- Principio 5 -->
+            <div class="principle">
+                <h3>5. No prevenir errores</h3>
+                <p>Permitir que los usuarios cometan errores irreversibles sin advertencias o confirmaciones puede llevar a consecuencias no deseadas.</p>
+                <div class="example">
+                    <form onsubmit="return false">
+                        <input type="email" placeholder="Email" id="email-no">
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <p><strong>Ejemplo:</strong> Un formulario que permite enviar un email sin validación previa, lo que puede resultar en errores como introducir un email incorrecto sin notificación alguna.</p>
+                </div>
+            </div>
+            <!-- Principio 6 -->
+            <div class="principle">
+                <h3>6. Forzar al usuario a recordar información</h3>
+                <p>Obligar al usuario a recordar información crítica sin proporcionar ayudas o referencias contextuales es una mala práctica que puede aumentar la carga cognitiva.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Un formulario que solicita un número de pedido sin ofrecer pistas sobre dónde encontrar esa información, obligando al usuario a recordar o buscar el dato por su cuenta.</p>
+                </div>
+            </div>
+            <!-- Principio 7 -->
+            <div class="principle">
+                <h3>7. Falta de flexibilidad y eficiencia para usuarios avanzados</h3>
+                <p>No ofrecer atajos o métodos más rápidos para realizar tareas puede frustrar a los usuarios avanzados y reducir la eficiencia general.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Un sistema en el que todas las acciones deben realizarse manualmente sin ninguna opción de usar atajos, lo que ralentiza la interacción para usuarios más experimentados.</p>
+                </div>
+            </div>
+            <!-- Principio 8 -->
+            <div class="principle">
+                <h3>8. Sobrecarga de información en la interfaz</h3>
+                <p>Incluir demasiada información y elementos visuales innecesarios puede distraer al usuario y dificultar la navegación.</p>
+                <div class="example">
+                    <p style="background-color: yellow;"><strong>Ejemplo:</strong> "¡Compra ahora! ¡Solo quedan 3! ¡Ofertas exclusivas! ¡Haz clic aquí para más información!" es un ejemplo de sobrecarga de información, donde el exceso de texto y colores brillantes abruma al usuario en lugar de guiarlo.</p>
+                </div>
+            </div>
+            <!-- Principio 9 -->
+            <div class="principle">
+                <h3>9. Mensajes de error crípticos</h3>
+                <p>Mostrar mensajes de error que no explican claramente el problema o cómo solucionarlo deja al usuario sin una dirección clara para corregir la situación.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> "Error 500: El servidor ha fallado." es un mensaje que no brinda ninguna orientación sobre cómo resolver el problema o qué acciones seguir.</p>
+                </div>
+            </div>
+            <!-- Principio 10 -->
+            <div class="principle">
+                <h3>10. Ausencia de ayuda o documentación</h3>
+                <p>No proporcionar acceso fácil a ayuda o documentación puede dejar a los usuarios atrapados cuando se enfrentan a problemas.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Una aplicación que no incluye ninguna guía o FAQ, lo que deja a los usuarios sin apoyo cuando se enfrentan a problemas.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de Qué SÍ hacer -->
+        <section class="column hacer">
+            <h2>Qué SÍ hacer</h2>
+            <!-- Principio 1 -->
+            <div class="principle">
+                <h3>1. Mantener la visibilidad del estado del sistema</h3>
+                <p>Informa al usuario constantemente sobre el estado actual del sistema mediante retroalimentación apropiada, para que sepa en todo momento qué está ocurriendo.</p>
+                <div class="example">
+                    <button onclick="loadContent('yes', true)">Cargar contenido</button>
+                    <div id="yes-load" class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p><strong>Ejemplo:</strong> Al hacer clic en "Cargar contenido", el usuario ve una barra de progreso que muestra claramente que el sistema está procesando su solicitud, lo que evita incertidumbre y mejora la experiencia.</p>
+                </div>
+            </div>
+            <!-- Principio 2 -->
+            <div class="principle">
+                <h3>2. Usar un lenguaje y conceptos familiares para el usuario</h3>
+                <p>Utiliza un lenguaje que sea claro y comprensible para el usuario, manteniendo la relación entre el sistema y el mundo real mediante términos y convenciones familiares.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> "Lo sentimos, no pudimos encontrar la página que buscas. ¿Quieres volver al inicio?" es un mensaje que utiliza un lenguaje amigable y ofrece una solución clara, en lugar de un término técnico como "Error 404".</p>
+                </div>
+            </div>
+            <!-- Principio 3 -->
+            <div class="principle">
+                <h3>3. Ofrecer control y libertad al usuario</h3>
+                <p>Permite que los usuarios deshagan acciones o salgan de situaciones no deseadas fácilmente, brindándoles control sobre su interacción con el sistema.</p>
+                <div class="example">
+                    <button onclick="alert('Acción cancelada. Tu cuenta está a salvo.')">Cancelar eliminación</button>
+                    <p><strong>Ejemplo:</strong> Un botón de "Cancelar eliminación" que permite al usuario detener la acción de eliminar su cuenta, dándole la libertad de deshacer una acción potencialmente perjudicial.</p>
+                </div>
+            </div>
+            <!-- Principio 4 -->
+            <div class="principle">
+                <h3>4. Mantener la consistencia y utilizar estándares</h3>
+                <p>Sigue las convenciones de diseño y utiliza una terminología consistente en toda la interfaz para que los usuarios puedan navegar y utilizar el sistema con facilidad.</p>
+                <div class="example">
+                    <button>Enviar</button>
+                    <button>Cancelar</button>
+                    <p><strong>Ejemplo:</strong> Dos botones claramente etiquetados como "Enviar" y "Cancelar", siguiendo convenciones establecidas que los usuarios reconocerán y entenderán de inmediato.</p>
+                </div>
+            </div>
+            <!-- Principio 5 -->
+            <div class="principle">
+                <h3>5. Prevenir errores</h3>
+                <p>Anticípate a los errores que los usuarios podrían cometer y proporciona advertencias o confirmaciones que ayuden a evitar consecuencias no deseadas.</p>
+                <div class="example">
+                    <form onsubmit="return validateEmail()">
+                        <input type="email" placeholder="Email" id="email-yes">
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <p><strong>Ejemplo:</strong> Un formulario que valida el formato del email antes de enviar, notificando al usuario si hay un error y permitiéndole corregirlo antes de continuar.</p>
+                </div>
+            </div>
+            <!-- Principio 6 -->
+            <div class="principle">
+                <h3>6. Minimizar la carga de memoria del usuario</h3>
+                <p>Proporciona ayudas o referencias contextuales que reduzcan la necesidad de que el usuario recuerde información crítica durante su interacción con el sistema.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Un formulario que incluye una sugerencia de autocompletado para el número de pedido basado en pedidos recientes, ayudando al usuario a encontrar la información fácilmente.</p>
+                </div>
+            </div>
+            <!-- Principio 7 -->
+            <div class="principle">
+                <h3>7. Ofrecer flexibilidad y eficiencia para usuarios avanzados</h3>
+                <p>Incorpora atajos y métodos alternativos para que los usuarios avanzados puedan completar tareas de manera más rápida y eficiente.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Un sistema que permite a los usuarios realizar acciones comunes mediante combinaciones de teclas, mejorando la eficiencia para quienes prefieren métodos más rápidos.</p>
+                </div>
+            </div>
+            <!-- Principio 8 -->
+            <div class="principle">
+                <h3>8. Mantener un diseño estético y minimalista</h3>
+                <p>Evita el desorden en la interfaz, incluyendo solo los elementos necesarios para completar tareas sin distracciones, para que el usuario se enfoque en lo esencial.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> "Compra ahora" y "Más información" son dos llamadas a la acción claras y bien diferenciadas, presentadas en un diseño limpio y sin elementos innecesarios.</p>
+                </div>
+            </div>
+            <!-- Principio 9 -->
+            <div class="principle">
+                <h3>9. Proporcionar mensajes de error claros y útiles</h3>
+                <p>Diseña mensajes de error que sean fáciles de entender y que guíen al usuario para corregir el problema.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> "Parece que la página que buscas no está disponible. ¿Quieres volver a la página de inicio o contactar con soporte?" es un mensaje que explica claramente el error y ofrece soluciones útiles.</p>
+                </div>
+            </div>
+            <!-- Principio 10 -->
+            <div class="principle">
+                <h3>10. Incluir ayuda y documentación accesible</h3>
+                <p>Proporciona una ayuda fácil de encontrar y documentación comprensible para que los usuarios puedan resolver sus dudas y problemas rápidamente.</p>
+                <div class="example">
+                    <p><strong>Ejemplo:</strong> Una opción de "Ayuda" en cada página que dirige al usuario a una guía completa o a una sección de preguntas frecuentes, asegurando que la información esté siempre a su alcance.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script src="./script.js"></script>
+</body>
+</html>
