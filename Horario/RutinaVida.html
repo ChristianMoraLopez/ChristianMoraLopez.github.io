@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Una vida con forma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #f5f0e8;
+  --ink: #1a1714;
+  --warm: #c4a882;
+  --rust: #8b4a2f;
+  --pad: clamp(1.25rem, 5vw, 5rem);
+  --pad-y: clamp(3rem, 8vh, 8rem);
+}
+
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(26,23,20,0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(196,168,130,0.12);
+  padding: 0 var(--pad);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.52rem, 1.8vw, 0.62rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm);
+  opacity: 0.85;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  align-items: center;
+}
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.42);
+  text-decoration: none;
+  transition: color 0.25s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--warm); }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+}
+.burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--warm);
+  transition: transform 0.32s, opacity 0.32s;
+  transform-origin: center;
+}
+.burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-drawer {
+  position: fixed;
+  top: 56px; left: 0; right: 0;
+  background: rgba(18,15,12,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 199;
+  padding: 1.5rem var(--pad) 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-110%);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 1px solid rgba(196,168,130,0.1);
+}
+.nav-drawer.open { transform: translateY(0); }
+.nav-drawer a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.48);
+  text-decoration: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(196,168,130,0.07);
+  transition: color 0.2s;
+}
+.nav-drawer a:last-child { border-bottom: none; }
+.nav-drawer a:hover { color: var(--warm); }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--pad) clamp(2.5rem, 9vh, 7rem);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80');
+  background-size: cover;
+  background-position: center 30%;
+  filter: brightness(0.3) sepia(0.3);
+  transform: scale(1.04);
+  animation: slowZoom 18s ease-out forwards;
+}
+@keyframes slowZoom {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.0); }
+}
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,23,20,0.97) 0%, transparent 65%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.3s ease-out both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(34px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.55rem, 1.8vw, 0.68rem);
+  letter-spacing: 0.28em;
+  color: var(--warm);
+  text-transform: uppercase;
+  margin-bottom: clamp(0.7rem, 2vh, 1.4rem);
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 10vw, 7rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(0.8rem, 2vh, 1.4rem);
+}
+.hero-title em { font-style: italic; color: var(--warm); }
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,240,232,0.52);
+  line-height: 1.65;
+  max-width: 400px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: clamp(1.5rem, 4vh, 3rem);
+  right: var(--pad);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  color: var(--warm);
+  writing-mode: vertical-rl;
+  opacity: 0.4;
+  animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { opacity: 0.22; }
+  50%      { opacity: 0.55; }
+}
+
+/* ── SHARED ── */
+section { padding: var(--pad-y) var(--pad); }
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+  letter-spacing: 0.3em;
+  color: var(--warm);
+  text-transform: uppercase;
+  margin-bottom: clamp(2rem, 5vh, 4rem);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(196,168,130,0.18);
+  max-width: 160px;
+}
+
+/* ── DAILY ── */
+#diaria { background: var(--ink); }
+
+.time-block {
+  display: grid;
+  grid-template-columns: clamp(70px,14vw,140px) 1fr;
+  gap: 0 clamp(0.8rem, 2.5vw, 2rem);
+  border-top: 1px solid rgba(196,168,130,0.1);
+  padding: clamp(1.4rem, 3.5vh, 2.5rem) 0;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.52s ease, transform 0.52s ease;
+}
+.time-block.visible { opacity: 1; transform: translateY(0); }
+.time-block:last-child { border-bottom: 1px solid rgba(196,168,130,0.1); }
+
+.time-col { padding-top: 0.2rem; }
+.time-num {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.6rem, 1.6vw, 0.74rem);
+  color: var(--warm);
+  opacity: 0.72;
+  letter-spacing: 0.08em;
+}
+.time-period {
+  font-size: clamp(0.62rem, 1.6vw, 0.74rem);
+  font-style: italic;
+  color: rgba(245,240,232,0.26);
+  margin-top: 0.18rem;
+}
+
+.block-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(0.8rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+.block-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.46rem, 1.2vw, 0.54rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.26rem 0.6rem;
+  border: 1px solid rgba(196,168,130,0.26);
+  color: var(--warm);
+  margin-bottom: 0.55rem;
+}
+
+.block-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 0.55rem;
+}
+.block-title em { font-style: italic; color: var(--warm); }
+
+.block-desc {
+  font-size: clamp(0.88rem, 2vw, 1rem);
+  font-weight: 300;
+  line-height: 1.72;
+  color: rgba(245,240,232,0.56);
+}
+
+.block-quote {
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  font-style: italic;
+  color: var(--warm);
+  opacity: 0.8;
+  margin-top: 0.8rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--warm);
+  line-height: 1.6;
+}
+
+.block-img {
+  width: clamp(75px, 16vw, 150px);
+  height: clamp(95px, 20vw, 190px);
+  object-fit: cover;
+  filter: brightness(0.65) sepia(0.2);
+  flex-shrink: 0;
+  transition: filter 0.38s;
+}
+.block-img:hover { filter: brightness(0.85) sepia(0.1); }
+
+/* ── FRASE ── */
+.frase-banner {
+  padding: clamp(2.5rem, 7vh, 7rem) var(--pad);
+  background: var(--rust);
+  position: relative;
+  overflow: hidden;
+}
+.frase-banner::before {
+  content: '"';
+  position: absolute;
+  font-size: clamp(7rem, 22vw, 20rem);
+  color: rgba(255,255,255,0.042);
+  top: -2rem; left: 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.frase-text {
+  font-size: clamp(1.1rem, 3.2vw, 2.2rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.55;
+  max-width: 760px;
+  position: relative; z-index: 1;
+}
+.frase-attr {
+  margin-top: 1.1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.52rem, 1.4vw, 0.62rem);
+  letter-spacing: 0.22em;
+  opacity: 0.52;
+  text-transform: uppercase;
+}
+
+/* ── WEEKLY ── */
+#semanal { background: #161310; padding-left: 0; padding-right: 0; padding-top: 0; }
+
+.week-hero {
+  position: relative;
+  height: clamp(190px, 42vh, 50vh);
+  overflow: hidden;
+  margin-bottom: clamp(2rem, 5vh, 5rem);
+}
+.week-hero img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.26) sepia(0.4);
+}
+.week-hero-text {
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+  padding: 0 var(--pad);
+}
+.week-hero-title {
+  font-size: clamp(1.7rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.semanal-inner { padding: 0 var(--pad) var(--pad-y); }
+
+/* Horizontal scroll container */
+.days-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: 0 calc(-1 * var(--pad));
+  padding: 0 var(--pad) 0.5rem;
+}
+.days-scroll::-webkit-scrollbar { display: none; }
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(185px, 1fr));
+  gap: 1px;
+  background: rgba(196,168,130,0.07);
+  border: 1px solid rgba(196,168,130,0.07);
+  width: max-content;
+  min-width: 100%;
+}
+
+.day-card {
+  background: #161310;
+  padding: clamp(1.1rem, 2.5vw, 2rem) clamp(0.9rem, 2vw, 1.5rem);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.28s;
+}
+.day-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--warm);
+  transform: scaleX(0);
+  transition: transform 0.38s ease;
+  transform-origin: left;
+}
+.day-card:hover::before { transform: scaleX(1); }
+.day-card:hover { background: rgba(196,168,130,0.03); }
+
+.day-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: 0.38rem;
+}
+.day-theme {
+  font-size: clamp(0.95rem, 2.2vw, 1.12rem);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.day-items { list-style: none; flex: 1; }
+.day-items li {
+  font-size: clamp(0.74rem, 1.6vw, 0.8rem);
+  font-weight: 300;
+  color: rgba(245,240,232,0.48);
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+.day-items li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--warm); opacity: 0.42;
+}
+.day-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 2.6rem;
+  color: rgba(196,168,130,0.05);
+  position: absolute;
+  bottom: 0.7rem; right: 0.9rem;
+  line-height: 1;
+}
+
+.scroll-tip {
+  display: none;
+  text-align: center;
+  margin-top: 1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm);
+  opacity: 0.4;
+}
+
+/* ── IMG BREAK ── */
+.img-break {
+  position: relative;
+  height: clamp(230px, 48vh, 60vh);
+  overflow: hidden;
+}
+.img-break img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.22) sepia(0.32);
+}
+.img-break-text {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(1.2rem, 4vw, 4rem);
+  text-align: center;
+}
+.img-break-text blockquote {
+  font-size: clamp(1.1rem, 3.2vw, 2.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.48;
+  max-width: 700px;
+}
+
+/* ── MONTHLY ── */
+#mensual { background: var(--ink); }
+
+.monthly-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  margin-bottom: clamp(2.5rem, 7vh, 6rem);
+  align-items: center;
+}
+.monthly-intro-text h2 {
+  font-size: clamp(1.8rem, 4.5vw, 3.7rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 1.4rem;
+}
+.monthly-intro-text h2 em { font-style: italic; color: var(--warm); }
+.monthly-intro-text p {
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  font-weight: 300;
+  color: rgba(245,240,232,0.56);
+  line-height: 1.82;
+}
+.monthly-intro-img { position: relative; }
+.monthly-intro-img img {
+  width: 100%;
+  height: clamp(220px, 38vw, 470px);
+  object-fit: cover;
+  filter: brightness(0.56) sepia(0.28);
+}
+.monthly-intro-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  border: 1px solid rgba(196,168,130,0.18);
+  transform: translate(10px, 10px);
+  z-index: -1;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: clamp(2.5rem, 6vh, 5.5rem);
+  background: rgba(196,168,130,0.07);
+}
+.pillar {
+  background: var(--ink);
+  padding: clamp(1.4rem, 3vw, 2.8rem) clamp(1.1rem, 2.2vw, 2rem);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.28s;
+}
+.pillar:hover { background: rgba(196,168,130,0.03); }
+.pillar-num {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  color: rgba(196,168,130,0.055);
+  position: absolute;
+  top: 0.7rem; right: 1rem;
+  line-height: 1;
+}
+.pillar-icon { font-size: 1.25rem; margin-bottom: 1.1rem; display: block; }
+.pillar-title {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+.pillar-text {
+  font-size: clamp(0.8rem, 1.7vw, 0.88rem);
+  font-weight: 300;
+  color: rgba(245,240,232,0.46);
+  line-height: 1.72;
+}
+.pillar-metric {
+  margin-top: 1.1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.5rem, 1.2vw, 0.58rem);
+  letter-spacing: 0.18em;
+  color: var(--warm);
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.month-rhythm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.rhythm-col h3 {
+  font-size: clamp(1.2rem, 2.8vw, 1.75rem);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 1.7rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(196,168,130,0.13);
+  line-height: 1.3;
+}
+.rhythm-item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(196,168,130,0.07);
+  display: grid;
+  grid-template-columns: clamp(55px,13vw,80px) 1fr;
+  gap: 1.1rem;
+}
+.rhythm-week {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.55rem, 1.3vw, 0.63rem);
+  color: var(--warm);
+  opacity: 0.65;
+  letter-spacing: 0.1em;
+  padding-top: 0.18rem;
+  line-height: 1.4;
+}
+.rhythm-content h4 {
+  font-size: clamp(0.92rem, 2vw, 1.08rem);
+  font-weight: 300;
+  margin-bottom: 0.32rem;
+}
+.rhythm-content p {
+  font-size: clamp(0.8rem, 1.7vw, 0.86rem);
+  color: rgba(245,240,232,0.46);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: clamp(2rem, 5vh, 5rem) var(--pad);
+  background: #0d0b09;
+  border-top: 1px solid rgba(196,168,130,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-text {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.52rem, 1.3vw, 0.6rem);
+  letter-spacing: 0.2em;
+  color: rgba(245,240,232,0.26);
+  text-transform: uppercase;
+}
+.footer-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.7rem, 2vw, 1.8rem);
+}
+.footer-val {
+  font-size: clamp(0.7rem, 1.6vw, 0.78rem);
+  font-style: italic;
+  color: var(--warm);
+  opacity: 0.46;
+}
+
+/* ── BREAKPOINTS ── */
+@media (max-width: 1024px) {
+  .pillars { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .burger { display: flex; }
+  .nav-links { display: none; }
+  .monthly-intro { grid-template-columns: 1fr; }
+  .month-rhythm { grid-template-columns: 1fr; }
+  .scroll-tip { display: block; }
+}
+
+@media (max-width: 560px) {
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .time-block {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .time-col {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .time-period { margin-top: 0; }
+  .block-inner { grid-template-columns: 1fr; }
+  .block-img {
+    width: 100%;
+    height: clamp(140px, 40vw, 200px);
+    margin-top: 0.6rem;
+  }
+  .monthly-intro-img::after { display: none; }
+  footer { justify-content: center; text-align: center; }
+  .footer-values { justify-content: center; }
+}
+
+@media (max-width: 400px) {
+  .pillars { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Una vida con forma</span>
+  <div class="nav-links">
+    <a href="#diaria">Diaria</a>
+    <a href="#semanal">Semanal</a>
+    <a href="#mensual">Mensual</a>
+    <a href="#valores">Valores</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="drawer">
+  <a href="#diaria"  onclick="closeDrawer()">Rutina diaria</a>
+  <a href="#semanal" onclick="closeDrawer()">Arquitectura semanal</a>
+  <a href="#mensual" onclick="closeDrawer()">Ritmo mensual</a>
+  <a href="#valores" onclick="closeDrawer()">Valores centrales</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">Diseño de vida · 2026</div>
+    <h1 class="hero-title">Una vida<br>con <em>forma</em></h1>
+    <p class="hero-sub">No es una agenda. Es una declaración de lo que importa, convertida en hábito.</p>
+  </div>
+  <div class="scroll-hint">Desplaza</div>
+</section>
+
+<!-- DAILY -->
+<section id="diaria">
+  <div class="section-label">01 · Rutina diaria</div>
+
+  <div class="day-grid">
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">06:45</div><div class="time-period">Despertar</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Contacto</span>
+          <h3 class="block-title">Antes que la <em>pantalla</em>, ella</h3>
+          <p class="block-desc">Contacto físico con Valentina antes de abrir el teléfono. Treinta segundos que le dicen al sistema nervioso dónde estás y con quién.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">07:00</div><div class="time-period">El café</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Silencio propio</span>
+          <h3 class="block-title">El café <em>solo</em></h3>
+          <p class="block-desc">Sin teléfono, sin noticias, sin podcast. Solo tú y el café y lo que haya afuera. Diez minutos que son enteramente tuyos.</p>
+          <p class="block-quote">El café de las siete es mío. Es el único momento en que no le debo nada a nadie.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">07:15</div><div class="time-period">Orientación</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Claridad</span>
+          <h3 class="block-title">Una sola <em>cosa</em></h3>
+          <p class="block-desc">Una pregunta: ¿qué es lo más importante que necesita pasar hoy? No una lista — una columna vertebral.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">08:30</div><div class="time-period">Creación</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">El libro primero</span>
+          <h3 class="block-title">Escribir antes que <em>revisar</em></h3>
+          <p class="block-desc">El primer acto del día no es el email ni el SaaS — es abrir el documento. Veinte minutos. Aunque salga mal.</p>
+          <p class="block-quote">Escribo antes de revisar el correo porque si no, el día se lo lleva otro.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1542435503-956c469947f6?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">09:15</div><div class="time-period">Negocio</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">SaaS · límite real</span>
+          <h3 class="block-title">El trabajo tiene <em>horario</em></h3>
+          <p class="block-desc">Hasta las 12:30. Lo difícil primero. Cuando el bloque termina, termina. El trabajo sin límite no es dedicación — es miedo disfrazado.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">12:30</div><div class="time-period">Mediodía</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Pausa real</span>
+          <h3 class="block-title">Comer sin <em>pantalla</em></h3>
+          <p class="block-desc">Veinte minutos sentado, presente. El almuerzo en el jardín empieza aquí, en el hábito de parar de verdad.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">13:00</div><div class="time-period">Movimiento</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Cuerpo · conexión</span>
+          <h3 class="block-title">El gimnasio es una <em>cita</em></h3>
+          <p class="block-desc">Tres veces por semana con Valentina — inamovible. El resto: caminata de veinte minutos solo, sin podcast. El cuerpo cambia el modo de la mente.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">16:00</div><div class="time-period">Tarde libre</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Sin agenda</span>
+          <h3 class="block-title">Tiempo que no <em>construye</em> nada</h3>
+          <p class="block-desc">Leer algo que no es el libro. Salir con Bruno. Hablar de nada importante. No todo momento tiene que producir algo.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1551847677-dc82d764e1eb?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">18:00</div><div class="time-period">Cierre</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Ritual de cierre</span>
+          <h3 class="block-title">Cerrar el <em>computador</em></h3>
+          <p class="block-desc">Anotar la cosa más importante para mañana. Cerrar. "Por hoy terminé." El cerebro necesita señales claras para cambiar de modo.</p>
+          <p class="block-quote">Cierro el ordenador a la misma hora todos los días. No porque haya terminado — nunca se termina.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">19:00</div><div class="time-period">Cena</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Presencia real</span>
+          <h3 class="block-title">Sin teléfono en la <em>mesa</em></h3>
+          <p class="block-desc">¿Qué fue lo mejor y lo más difícil de hoy? Escuchar de verdad. Responder sin decir "todo bien."</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1564844536311-de546a28c87d?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">20:30</div><div class="time-period">Ritual</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">Escritura · intimidad</span>
+          <h3 class="block-title">Leerle lo que <em>escribí</em></h3>
+          <p class="block-desc">Tres noches por semana. Una página, un párrafo, una idea. Compartir lo que creas en voz alta antes de que esté listo.</p>
+          <p class="block-quote">Le leo lo que escribo antes de que esté listo. Ese es el acto más valiente que conozco.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-col"><div class="time-num">22:00</div><div class="time-period">Dormir</div></div>
+      <div class="block-inner">
+        <div>
+          <span class="block-tag">El cierre</span>
+          <h3 class="block-title">Acariciar su cabeza. <em>Silencio.</em></h3>
+          <p class="block-desc">Una pregunta antes de cerrar los ojos: ¿qué parte de mi día perfecto viví hoy? No para juzgar — para registrar.</p>
+          <p class="block-quote">Silencio, su cabeza, el peso del día que se va. No necesito más.</p>
+        </div>
+        <img class="block-img" src="https://images.unsplash.com/photo-1489769202090-1d2445b8e62a?w=400&q=75" alt="" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FRASE -->
+<div class="frase-banner">
+  <p class="frase-text">Valentina no es mi puerto. Es la persona con quien navego. Eso lo cambia todo — el peso, la dirección, la forma de mirar el mar.</p>
+  <p class="frase-attr">· Del día perfecto al hábito real</p>
+</div>
+
+<!-- WEEKLY -->
+<section id="semanal" style="padding:0">
+  <div class="week-hero">
+    <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1400&q=80" alt="" loading="lazy">
+    <div class="week-hero-text">
+      <h2 class="week-hero-title">Cada día tiene<br>una <em>intención</em> distinta</h2>
+    </div>
+  </div>
+
+  <div class="semanal-inner">
+    <div class="section-label">02 · Arquitectura semanal</div>
+
+    <div class="days-scroll">
+      <div class="days-grid">
+        <div class="day-card">
+          <div class="day-name">Lunes</div>
+          <div class="day-theme">Día de orientación</div>
+          <ul class="day-items">
+            <li>15 min con papel y pluma</li>
+            <li>¿Qué necesita avanzar?</li>
+            <li>Decisiones importantes del negocio</li>
+            <li>Lo más difícil primero</li>
+          </ul>
+          <div class="day-num">L</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Martes</div>
+          <div class="day-theme">Día de creación</div>
+          <ul class="day-items">
+            <li>Escritura extendida: 1 hora</li>
+            <li>El escritor tiene espacio</li>
+            <li>Reuniones del libro</li>
+            <li>Gimnasio con Valentina</li>
+          </ul>
+          <div class="day-num">M</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Miércoles</div>
+          <div class="day-theme">Día de operación</div>
+          <ul class="day-items">
+            <li>Orientado al SaaS</li>
+            <li>Ventas y reuniones</li>
+            <li>Escritura corta: 20 min</li>
+            <li>Noche: leerle a Vale</li>
+          </ul>
+          <div class="day-num">X</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Jueves</div>
+          <div class="day-theme">Día de recuperación</div>
+          <ul class="day-items">
+            <li>Trabajo más ligero</li>
+            <li>Tarde libre sin agenda</li>
+            <li>Cosas para la casa</li>
+            <li>Ajetreado-pero-juntos</li>
+          </ul>
+          <div class="day-num">J</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Viernes</div>
+          <div class="day-theme">Día de revisión</div>
+          <ul class="day-items">
+            <li>¿Qué avanzó esta semana?</li>
+            <li>¿Dónde traicioné valores?</li>
+            <li>¿Qué llevo al lunes?</li>
+            <li>Ritual de lectura</li>
+          </ul>
+          <div class="day-num">V</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Sábado</div>
+          <div class="day-theme">Cuerpo y casa</div>
+          <ul class="day-items">
+            <li>Sin trabajo antes de 12h</li>
+            <li>Gimnasio o caminata larga</li>
+            <li>Construir el hogar</li>
+            <li>Revisión de pareja</li>
+          </ul>
+          <div class="day-num">S</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Domingo</div>
+          <div class="day-theme">Día de recarga</div>
+          <ul class="day-items">
+            <li>Sin presión de resultado</li>
+            <li>Leer, escribir si surge</li>
+            <li>Contacto fuera de la pareja</li>
+            <li>Recargar de verdad</li>
+          </ul>
+          <div class="day-num">D</div>
+        </div>
+      </div>
+    </div>
+    <p class="scroll-tip">← desliza para ver todos los días →</p>
+  </div>
+</section>
+
+<!-- IMG BREAK -->
+<div class="img-break">
+  <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80" alt="" loading="lazy">
+  <div class="img-break-text">
+    <blockquote>Hay días en que no pasa nada extraordinario. El perro duerme al sol, ella prepara algo en la cocina. Y sin embargo algo en el pecho dice: aquí. Aquí es.</blockquote>
+  </div>
+</div>
+
+<!-- MONTHLY -->
+<section id="mensual">
+  <div class="section-label">03 · Ritmo mensual</div>
+
+  <div class="monthly-intro">
+    <div class="monthly-intro-text">
+      <h2>El mes como<br>unidad de <em>crecimiento</em></h2>
+      <p>No es productividad. Es asegurarte de que en treinta días el escritor escribió, el negocio creció, la relación se profundizó y tú descansaste de verdad.</p>
+    </div>
+    <div class="monthly-intro-img">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=75" alt="" loading="lazy">
+    </div>
+  </div>
+
+  <div class="pillars" id="valores">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <span class="pillar-icon">✦</span>
+      <h3 class="pillar-title">Seguridad sin miedo</h3>
+      <p class="pillar-text">No riqueza — ausencia de angustia. El SaaS con límites, las finanzas revisadas, el horizonte claro.</p>
+      <div class="pillar-metric">Revisión financiera mensual</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <span class="pillar-icon">✦</span>
+      <h3 class="pillar-title">Creación con identidad</h3>
+      <p class="pillar-text">El libro avanza. No en ráfagas — en hábito diario. Al final del mes hay páginas donde no había nada.</p>
+      <div class="pillar-metric">Páginas escritas · capítulos cerrados</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <span class="pillar-icon">✦</span>
+      <h3 class="pillar-title">Presencia compartida</h3>
+      <p class="pillar-text">Valentina recibió presencia deliberada, no por defecto. El bebé tiene un padre que sabe estar.</p>
+      <div class="pillar-metric">Rituales de pareja sostenidos</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <span class="pillar-icon">✦</span>
+      <h3 class="pillar-title">Soledad suficiente</h3>
+      <p class="pillar-text">Los cafés solos, las caminatas sin podcast. Cada mes construyen la capacidad de estar contigo mismo.</p>
+      <div class="pillar-metric">Momentos solos · integrados</div>
+    </div>
+  </div>
+
+  <div class="month-rhythm">
+    <div class="rhythm-col">
+      <h3>Las cuatro semanas tienen textura</h3>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Semana 1</div>
+        <div class="rhythm-content">
+          <h4>Arranque e impulso</h4>
+          <p>Energía alta, metas claras. El lunes de la primera semana define qué tiene que pasar.</p>
+        </div>
+      </div>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Semana 2</div>
+        <div class="rhythm-content">
+          <h4>Profundidad</h4>
+          <p>El trabajo más difícil del mes — en el libro y en el negocio. La mejor energía sostenida.</p>
+        </div>
+      </div>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Semana 3</div>
+        <div class="rhythm-content">
+          <h4>Mantenimiento y ajuste</h4>
+          <p>Revisar qué funcionó, qué no. Ajustar sin dramatismo. No es semana de grandes decisiones.</p>
+        </div>
+      </div>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Semana 4</div>
+        <div class="rhythm-content">
+          <h4>Cierre y recarga</h4>
+          <p>Revisar el mes. Celebrar lo que avanzó. Descansar de verdad. El mes siguiente lo merece.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rhythm-col">
+      <h3>Lo que se revisa cada mes</h3>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Libro</div>
+        <div class="rhythm-content">
+          <h4>¿Cuántas páginas? ¿Qué capítulo?</h4>
+          <p>No para juzgar la cantidad — para saber si el hábito produce algo real.</p>
+        </div>
+      </div>
+      <div class="rhythm-item">
+        <div class="rhythm-week">SaaS</div>
+        <div class="rhythm-content">
+          <h4>¿Exigió más o menos?</h4>
+          <p>Cada mes el objetivo: que requiera menos de ti por el mismo resultado. Eso es libertad real.</p>
+        </div>
+      </div>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Pareja</div>
+        <div class="rhythm-content">
+          <h4>¿Cómo estamos los dos?</h4>
+          <p>Una conversación real, no de logística. ¿Qué necesita ella? ¿Qué necesitas tú?</p>
+        </div>
+      </div>
+      <div class="rhythm-item">
+        <div class="rhythm-week">Yo solo</div>
+        <div class="rhythm-content">
+          <h4>¿Hubo momentos míos de verdad?</h4>
+          <p>¿Estuve solo y fue suficiente? ¿Contacto fuera de la pareja? ¿Cómo llevo la proximidad del bebé?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL BREAK -->
+<div class="img-break" style="height:clamp(250px,58vh,68vh)">
+  <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1400&q=80" alt="" loading="lazy">
+  <div class="img-break-text">
+    <blockquote>No te midas por cuántos días perfectos tuviste. Mídete por la velocidad con que vuelves después de los días que no lo fueron.</blockquote>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">Una vida con forma · 2026</div>
+  <div class="footer-values">
+    <span class="footer-val">Seguridad</span>
+    <span class="footer-val">Creación</span>
+    <span class="footer-val">Presencia</span>
+    <span class="footer-val">Cuidado</span>
+    <span class="footer-val">Intimidad</span>
+  </div>
+</footer>
+
+<script>
+  // Hamburger nav
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+
+  function closeDrawer() {
+    burger.classList.remove('open');
+    drawer.classList.remove('open');
+  }
+
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    burger.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!drawer.contains(e.target) && !burger.contains(e.target)) closeDrawer();
+  });
+
+  // Fade-in on scroll
+  const blocks = document.querySelectorAll('.time-block');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 55);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07 });
+  blocks.forEach(b => io.observe(b));
+
+  // Highlight active nav section
+  const sections = document.querySelectorAll('[id]');
+  const allLinks = document.querySelectorAll('.nav-links a, .nav-drawer a');
+  const sio = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        allLinks.forEach(a => {
+          const active = a.getAttribute('href') === '#' + entry.target.id;
+          a.style.color = active ? 'var(--warm)' : '';
+          a.style.opacity = active ? '1' : '';
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => sio.observe(s));
+</script>
+
+</body>
+</html>
